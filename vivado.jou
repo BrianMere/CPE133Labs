@@ -12,3 +12,4 @@
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/cpe133Labs.xpr
+update_compile_order -fileset sources_1

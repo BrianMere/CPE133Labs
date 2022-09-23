@@ -106,3 +106,7 @@ Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // Tcl Message: INFO: [Project 1-313] Project file moved from 'C:/Users/brian/Documents/Repositories' since last save. INFO: [filemgmt 56-2] Default IP Output Path : Could not find the directory 'C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/cpe133Labs.gen/sources_1', nor could it be found using path 'C:/Users/brian/Documents/Repositories/cpe133Labs.gen/sources_1'. 
 // Tcl Message: Scanning sources... Finished scanning sources 
 // Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2022.1/data/ip'. 
+// Tcl Message: open_project: Time (s): cpu = 00:00:23 ; elapsed = 00:00:08 . Memory (MB): peak = 1614.598 ; gain = 0.000 
+// Project name: cpe133Labs; location: C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs; part: xc7a35tcpg236-1
+dismissDialog("Open Project"); // bA
+// Tcl Message: update_compile_order -fileset sources_1 
