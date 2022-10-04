@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/cpe133lab1.runs/synth_1/WLA_top.tcl"
+  variable script "/home/brianm/Documents/Repos/CPE133Labs/cpe133lab1.runs/synth_1/WLA_top.tcl"
   variable category "vivado_synth"
 }
 
@@ -76,18 +76,18 @@ create_project -in_memory -part xc7a35tcpg236-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/cpe133lab1.cache/wt [current_project]
-set_property parent.project_path C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/cpe133lab1.xpr [current_project]
+set_property webtalk.parent_dir /home/brianm/Documents/Repos/CPE133Labs/cpe133lab1.cache/wt [current_project]
+set_property parent.project_path /home/brianm/Documents/Repos/CPE133Labs/cpe133lab1.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo c:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/cpe133lab1.cache/ip [current_project]
+set_property ip_output_repo /home/brianm/Documents/Repos/CPE133Labs/cpe133lab1.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib -sv {
-  C:/Users/brian/Downloads/WLA1.sv
-  C:/Users/brian/Downloads/WLA2.sv
-  C:/Users/brian/Downloads/WLA_top.sv
+  /home/brianm/Documents/Repos/CPE133Labs/cpe133lab1.srcs/sources_1/imports/Downloads/WLA1.sv
+  /home/brianm/Documents/Repos/CPE133Labs/cpe133lab1.srcs/sources_1/imports/Downloads/WLA2.sv
+  /home/brianm/Documents/Repos/CPE133Labs/cpe133lab1.srcs/sources_1/imports/Downloads/WLA_top.sv
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -98,12 +98,12 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/cpe133lab1.srcs/constrs_1/imports/Downloads/Basys3_constraints_Lab1.xdc
-set_property used_in_implementation false [get_files C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/cpe133lab1.srcs/constrs_1/imports/Downloads/Basys3_constraints_Lab1.xdc]
+read_xdc /home/brianm/Documents/Repos/CPE133Labs/cpe133lab1.srcs/constrs_1/imports/Downloads/Basys3_constraints_Lab1.xdc
+set_property used_in_implementation false [get_files /home/brianm/Documents/Repos/CPE133Labs/cpe133lab1.srcs/constrs_1/imports/Downloads/Basys3_constraints_Lab1.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/cpe133lab1.srcs/utils_1/imports/synth_1/WLA_sim.dcp
+read_checkpoint -auto_incremental -incremental /home/brianm/Documents/Repos/CPE133Labs/cpe133lab1.srcs/utils_1/imports/synth_1/WLA_sim.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

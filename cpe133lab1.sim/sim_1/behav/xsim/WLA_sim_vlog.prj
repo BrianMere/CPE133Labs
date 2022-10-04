@@ -1,8 +1,8 @@
 # compile verilog/system verilog design source files
 sv xil_defaultlib  \
-"../../../../../../../../Downloads/WLA1.sv" \
-"../../../../../../../../Downloads/WLA2.sv" \
-"../../../../../../../../Downloads/WLA_top.sv" \
+"../../../../cpe133lab1.srcs/sources_1/imports/Downloads/WLA1.sv" \
+"../../../../cpe133lab1.srcs/sources_1/imports/Downloads/WLA2.sv" \
+"../../../../cpe133lab1.srcs/sources_1/imports/Downloads/WLA_top.sv" \
 "../../../../cpe133lab1.srcs/sim_1/imports/Downloads/WLA_sim.sv" \
 
 # compile glbl module

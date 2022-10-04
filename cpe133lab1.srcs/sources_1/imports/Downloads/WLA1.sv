@@ -1,18 +1,14 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: Cal Poly
-// Engineer: Dr D
+// Engineer: Brian Mere, 
 // 
 // Create Date: 09/30/2022 12:27:45 PM
-// Design Name: 
+// Design Name: WLA_top
 // Module Name: WLA1
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
+// Project Name: Lab1
+// Target Devices: Basys 3
+// Description: Submodule that detects when water level is too low. 
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments: LOW water level 
