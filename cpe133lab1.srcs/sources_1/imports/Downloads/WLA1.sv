@@ -28,11 +28,13 @@ module WLA1(
     );
     
     // define logic for low water module level 
-    assign wLOW = (~w1 & ~w2) | (~w0 & ~w2);
+    // assign wLOW = (~w1 & ~w2) | (~w0 & ~w2);
+    
+    logic a1, a2;
  
     // purely structural approach
-    and #3 (a1, w2, w1, w0);
-    and #3 (a2, ~w2, w1, ~w0);
-    or  #3 (wLOW, a1, a2);
+    and #0 (a1, ~w2, ~w1);
+    and #0 (a2, ~w2, ~w0);
+    or  #0 (wLOW, a1, a2);
     
 endmodule

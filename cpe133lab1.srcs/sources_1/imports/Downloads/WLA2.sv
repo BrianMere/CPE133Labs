@@ -29,11 +29,10 @@ module WLA2(
     
     logic a1,a2;
     
-    // define logic for low water module level 
+    // define logic for low water module level
+    // assign wHIGH = (w1 & w2); 
     
     // purely structural approach
-    and #3 (a1, w2, w1, w0);
-    and #3 (a2, ~w2, w1, ~w0);
-    or  #3 (wHIGH, a1, a2);
+    and  #0 (wHIGH, w1, w2);
 
 endmodule
