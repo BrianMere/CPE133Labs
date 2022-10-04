@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1664839392" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/WLA_sim.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1664844868" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/WLA_sim.dcp">
   <File Type="PA-TCL" Name="WLA_top.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="WLA_top_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="WLA_top_reports.tcl"/>
@@ -40,8 +40,10 @@
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
     <Filter Type="Constrs"/>
-    <File Path="$PPRDIR/../../../../Downloads/Basys3_constraints_Lab1.xdc">
+    <File Path="$PSRCDIR/constrs_1/imports/Downloads/Basys3_constraints_Lab1.xdc">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/Basys3_constraints_Lab1.xdc"/>
+        <Attr Name="ImportTime" Val="1664574072"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
       </FileInfo>

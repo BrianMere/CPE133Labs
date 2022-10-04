@@ -37,21 +37,37 @@ module WLA_sim; //no ports to test module
         begin
         w2 = 0; w1 = 0; w0 = 0;
         #10
+        if (wHIGH != 0 | wLOW != 1) $display("Test case 1 failed!");
         
         w2 = 0; w1 = 0; w0 = 1;
         #10
-       
-      //add more test cases     
+        if (wHIGH != 0 | wLOW != 1) $display("Test case 2 failed!");
+        
+        w2 = 0; w1 = 1; w0 = 0;
+        #10
+        if (wHIGH != 0 | wLOW != 1) $display("Test case 3 failed!");
+        
         w2 = 0; w1 = 1; w0 = 1;
         #10
-
-        w2 = 1; w1 = 1; w0 = 0;
+        if (wHIGH != 0 | wLOW != 0) $display("Test case 4 failed!");
+        
+        w2 = 1; w1 = 0; w0 = 0;
         #10
-
+        if (wHIGH != 0 | wLOW != 0) $display("Test case 5 failed!");
+        
         w2 = 1; w1 = 0; w0 = 1;
         #10
+        if (wHIGH != 0 | wLOW != 0) $display("Test case 6 failed!");
+        
+        w2 = 1; w1 = 1; w0 = 0;
+        #10
+        if (wHIGH != 1 | wLOW != 0) $display("Test case 7 failed!");
+        
+        w2 = 1; w1 = 1; w0 = 1;
+        #10
+        if (wHIGH != 1 | wLOW != 0) $display("Test case 8 failed!");
          
-        $display("Finished");  
+        $display("Finished testing!");  
       end                                 
     
 endmodule
