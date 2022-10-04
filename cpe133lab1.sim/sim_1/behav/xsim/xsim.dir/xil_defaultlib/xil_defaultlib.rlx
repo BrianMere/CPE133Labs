@@ -1,0 +1,9 @@
+0.7
+2020.2
+Apr 18 2022
+16:05:34
+C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/cpe133lab1.sim/sim_1/behav/xsim/glbl.v,1649976174,verilog,,,,glbl,,uvm,,,,,,
+,,,,,,WLA_sim,,,,,,,,
+C:/Users/brian/Downloads/WLA1.sv,1664838956,systemVerilog,,C:/Users/brian/Downloads/WLA2.sv,,WLA1,,uvm,,,,,,
+C:/Users/brian/Downloads/WLA2.sv,1664829711,systemVerilog,,C:/Users/brian/Downloads/WLA_top.sv,,WLA2,,uvm,,,,,,
+C:/Users/brian/Downloads/WLA_top.sv,1664575038,systemVerilog,,C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/cpe133lab1.srcs/sim_1/imports/Downloads/WLA_sim.sv,,WLA_top,,uvm,,,,,,
