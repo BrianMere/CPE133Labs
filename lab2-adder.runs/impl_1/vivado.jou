@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Fri Oct  7 15:51:04 2022
+# Process ID: 17560
+# Current directory: C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab2-adder.runs/impl_1
+# Command line: vivado.exe -log adder_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source adder_wrapper.tcl -notrace
+# Log file: C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab2-adder.runs/impl_1/adder_wrapper.vdi
+# Journal file: C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab2-adder.runs/impl_1\vivado.jou
+# Running On: DESKTOP-OJK9U19, OS: Windows, CPU Frequency: 2803 MHz, CPU Physical cores: 4, Host memory: 16799 MB
+#-----------------------------------------------------------
+source adder_wrapper.tcl -notrace
