@@ -25,7 +25,7 @@ module adder_wrapper(
        input[3:0] B,
        input Oflow, 
        output[3:0] S,
-       output[3:0] Cout
+       output Cout
     );
     
     logic [3:0] S_int; 
@@ -43,6 +43,9 @@ module adder_wrapper(
     or #0 (S[1], S_int[1], O_int);
     or #0 (S[2], S_int[2], O_int);
     or #0 (S[3], S_int[3], O_int);
+    
+    // Saturation Logic
+    and #0 (O_int, Oflow, Cout);
     
       
 endmodule

@@ -26,7 +26,7 @@ module Full_Adder(
         .S(S_int));
     
     half_adder H1(
-        .A(C_1int),
+        .A(S_int),
         .B(Cin),
         .S(S),
         .C_out(C_2int));

@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab2-adder.runs/synth_1/adder_wrapper.tcl"
+  variable script "/home/brianm/Documents/Repos/CPE133Labs/lab2-adder.runs/synth_1/adder_wrapper.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,25 +70,27 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param xicom.use_bs_reader 1
+set_param chipscope.maxJobs 3
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab2-adder.cache/wt [current_project]
-set_property parent.project_path C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab2-adder.xpr [current_project]
+set_property webtalk.parent_dir /home/brianm/Documents/Repos/CPE133Labs/lab2-adder.cache/wt [current_project]
+set_property parent.project_path /home/brianm/Documents/Repos/CPE133Labs/lab2-adder.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo c:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab2-adder.cache/ip [current_project]
+set_property ip_output_repo /home/brianm/Documents/Repos/CPE133Labs/lab2-adder.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib -sv {
-  {C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab2-adder.srcs/sources_1/imports/Lab2 source/adder_4bit.sv}
-  {C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab2-adder.srcs/sources_1/imports/Lab2 source/full_adder.sv}
-  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab2-adder.srcs/sources_1/new/half_adder.sv
-  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab2-adder.srcs/sources_1/new/adder-wrapper.sv
+  {/home/brianm/Documents/Repos/CPE133Labs/lab2-adder.srcs/sources_1/imports/Lab2 source/adder_4bit.sv}
+  {/home/brianm/Documents/Repos/CPE133Labs/lab2-adder.srcs/sources_1/imports/Lab2 source/full_adder.sv}
+  /home/brianm/Documents/Repos/CPE133Labs/lab2-adder.srcs/sources_1/new/half_adder.sv
+  /home/brianm/Documents/Repos/CPE133Labs/lab2-adder.srcs/sources_1/new/adder-wrapper.sv
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -99,10 +101,12 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc {{C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab2-adder.srcs/constrs_1/imports/Lab2 source/Basys3_constraints.xdc}}
-set_property used_in_implementation false [get_files {{C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab2-adder.srcs/constrs_1/imports/Lab2 source/Basys3_constraints.xdc}}]
+read_xdc {{/home/brianm/Documents/Repos/CPE133Labs/lab2-adder.srcs/constrs_1/imports/Lab2 source/Basys3_constraints.xdc}}
+set_property used_in_implementation false [get_files {{/home/brianm/Documents/Repos/CPE133Labs/lab2-adder.srcs/constrs_1/imports/Lab2 source/Basys3_constraints.xdc}}]
 
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental /home/brianm/C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab2-adder.srcs/utils_1/imports/synth_1/adder_wrapper.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

@@ -12,26 +12,73 @@ module adder_4bit_sim; //no ports to test module
     logic [3:0] A;
     logic [3:0] B;
     logic [3:0] S; 
-    logic Cin,Cout;
+    logic Oflow,Cout;
+    
+    bit perfect_tests = 1; 
     
     //Instantiate your module undertest
-    Adder_4bit my_adder (  .A(A), .B(B), .Cin(Cin), .S(S), .Cout(Cout)  );
+    adder_wrapper my_adder (  .A(A), .B(B), .Oflow(Oflow), .S(S), .Cout(Cout)  );
 
     //list your test cases
     initial 
         begin
-        A = 0000; B = 0001; Cin = 0;
-        #10
         
-	// THIS MAY NOT BE CORRECT...!
-        A = 1111; B = 0001; Cin = 0;
+        $display("Starting Tests ...");
+        
+        A = 0; B = 0; Oflow = 0;
         #10
-
-        A = 0011; B = 0001; Cin = 0;
+        test(A, B, Oflow);
+        
+        A = 15; B = 0; Oflow = 0;
         #10
+        test(A, B, Oflow);
+        
+        A = 0; B = 15; Oflow = 0;
+        #10 
+        test(A, B, Oflow);
+        
+        A = 15; B = 15; Oflow = 1;
+        #10 
+        test(A, B, Oflow);
+        
+        A = 15; B = 15; Oflow = 0;
+        #10 
+        test(A, B, Oflow);
+        
+        if (perfect_tests) $display("All Tests Passed!");
+        else $display("ERROR!: Some tests failed!");
 
-       $display("Finished");  
-      end                                 
+        $display("Testing Finished ...");  
+      end
+      
+      function void test(reg [3:0] x, reg [3:0] y, reg Oflow);
+        A = x; B = y;
+        if (S != expected_Sval(x, y, Oflow)) begin
+            perfect_tests = 0;
+            $display("Test failed! S is unexpected value!");
+            $display("Inputs: A = %b | B = %b | Oflow = %b", x, y, Oflow);
+            $display("Outputs: S = %b | Cout = %b", S, Cout);
+            $display("Expected Outputs: S = %b | Cout = %b", expected_Sval(x,y,Oflow), expected_CoutVal(x,y,Oflow));
+        end
+        if (Cout != expected_CoutVal(x, y, Oflow)) begin
+            perfect_tests = 0;
+            $display("Test failed! Cout is unexpected value!");
+            $display("Inputs: A = %b | B = %b | Oflow = %b", x, y, Oflow);
+            $display("Outputs: S = %b | Cout = %b", S, Cout);
+            $display("Expected Outputs: S = %b | Cout = %b", expected_Sval(x,y,Oflow), expected_CoutVal(x,y,Oflow));
+        end
+      endfunction
+     
+      function reg[3:0] expected_Sval(reg [3:0] x, reg [3:0] y, reg Oflow);
+        if (x + y >= 15 & Oflow) return 15;
+        else if (x + y > 15 & ~Oflow) return x + y - 16;
+        return x + y;
+      endfunction 
+      
+      function reg expected_CoutVal(reg [3:0] x, reg[3:0] y, reg Oflow);
+        if (x + y > 15) return 1;
+        return 0;
+      endfunction          
     
 endmodule
 
