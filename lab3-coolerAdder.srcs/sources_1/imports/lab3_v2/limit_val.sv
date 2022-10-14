@@ -16,7 +16,7 @@ module limit_val(
 	       out = 4'b1001;
 	   else
 	       out = S;           // always include a default case 
-	                        // otherwise, verilog will allocate memory to save old value of L
+	                        // otherwise, verilog will allocate memory to save old value of out
 	end
 
 endmodule

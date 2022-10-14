@@ -31,7 +31,7 @@ module num_2_display(
     
     limit_val L(
         .S(S),
-        .leftBit(neg));
+        .out(LimitOut));
     
     seg7 S7(
         .val(LimitOut),
