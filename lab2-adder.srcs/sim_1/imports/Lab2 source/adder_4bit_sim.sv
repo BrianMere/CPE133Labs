@@ -34,7 +34,7 @@ module adder_4bit_sim; //no ports to test module
         test(A, B, Oflow);
         
         A = 0; B = 15; Oflow = 0;
-        #10 
+        #10
         test(A, B, Oflow);
         
         A = 15; B = 15; Oflow = 1;
@@ -51,7 +51,7 @@ module adder_4bit_sim; //no ports to test module
         $display("Testing Finished ...");  
       end
       
-      function void test(reg [3:0] x, reg [3:0] y, reg Oflow);
+      function void test(input reg [3:0] x, input reg [3:0] y, input reg Oflow);
         A = x; B = y;
         if (S != expected_Sval(x, y, Oflow)) begin
             perfect_tests = 0;
@@ -69,13 +69,13 @@ module adder_4bit_sim; //no ports to test module
         end
       endfunction
      
-      function reg[3:0] expected_Sval(reg [3:0] x, reg [3:0] y, reg Oflow);
+      function reg[3:0] expected_Sval(input reg [3:0] x, input reg [3:0] y, input reg Oflow);
         if (x + y >= 15 & Oflow) return 15;
         else if (x + y > 15 & ~Oflow) return x + y - 16;
         return x + y;
       endfunction 
       
-      function reg expected_CoutVal(reg [3:0] x, reg[3:0] y, reg Oflow);
+      function reg expected_CoutVal(input reg [3:0] x, input reg[3:0] y, input reg Oflow);
         if (x + y > 15) return 1;
         return 0;
       endfunction          
