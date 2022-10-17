@@ -11,9 +11,22 @@ module Full_Adder(
 	output S,
 	output  Cout
 	);
+	
+	logic Sint, Cout1, Cout2;
 
-	assign S = ~Cout & (A | B | Cin) | (A & B & Cin);
-	assign Cout = (A & Cin) | (B & Cin) | (A & B);
+	half_adder FA1(
+	   .A(A),
+	   .B(B),
+	   .S(Sint),
+	   .Cout(Cout1));
+	
+	half_adder FA2(
+	   .A(Cin),
+	   .B(Sint),
+	   .S(S),
+	   .Cout(Cout2));
+	   
+	or (Cout, Cout1, Cout2);
 	
 endmodule
 

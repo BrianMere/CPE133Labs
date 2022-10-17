@@ -9,14 +9,16 @@ module add_sub_display_sim; //no ports to test module
 
     // declare inputs and outputs for your module
     // can be the same names as the ports of the module under test
-    logic [3:0] A;
-    logic [3:0] B;
-    logic sub;
+    logic [3:0] A, B, S, S_4;
+    logic sub, neg;
     logic [6:0] numSeg;
     logic [6:0] negSeg;
     
     //Instantiate your module undertest
-    lab3_top TOP(  .A(A), .B(B), .sub(sub), .numSeg(numSeg), .negSeg(negSeg)  );
+    add_sub_struct add_sub_struct(  .A(A), .B(B), .subtract(sub), .S(S), .neg(neg)  );
+    num_2_display num_2_display( .S(S), .neg(neg), .numSeg(numSeg), .negSeg(negSeg) );
+    Adder_4bit adder_4bit(.A(A), .B(B), .Cin(0), .S(S_4));
+    // Mux4bit2sel mux(.A(...
 
     //list your test cases
     initial 
@@ -24,23 +26,54 @@ module add_sub_display_sim; //no ports to test module
         
         $display("Begin Testing...");
         
-        A = 4'b0000; B = 4'b0001; sub = 1'b0; // 0 - 1 = -1
+        A = 4'b0000; B = 4'b0001; sub = 1'b0; // 0 + 1 = 1
         #10
+        test(A, B, sub);
         
-        
-        A = 4'b1111; B = 4'b0001;
+        A = 4'b1111; B = 4'b0001; sub = 1'b1; // 15 - 1 = 14
         #10
+        test(A, B, sub);
 
-        A = 4'b0011; B = 4'b0001;
+        A = 4'b0000; B = 4'b0000; sub = 1'b1; // 0 - 0 = 0
         #10
+        test(A, B, sub);
+        
+        A = 4'b0001; B = 4'b1111; sub = 1'b1; // 1 - 15 = -14
+        #10
+        test(A, B, sub);
 
        $display("Finished");  
       end  
       
-//      function test(reg [3:0] A, reg [3:0] B, reg sub) 
-//      begin
-//        if(numSeg 
-//      end                          
+      function void test(reg [3:0] A, reg [3:0] B, reg sub);
+        if(S_4 != A + B)
+            begin
+                printFailedTest("Failed Test on Adder_4bit");
+            end
+        if(sub)
+            begin
+            if(S != A - B) 
+                begin
+                    printFailedTest("Failed Test on add_sub_struct module.");
+                end             
+            end
+        else 
+            begin
+            if(S != A + B)
+                begin
+                    printFailedTest("Failed Test on add_sub_struct module.");
+                end
+            end
+            
+        // TODO: add checks for numSeg and negSeg
+            
+      endfunction
+      
+      function void printFailedTest(String message);
+        $display("Test Failed: \n"); 
+        $display("\tInputs: A = %b, B = %b, sub = %b", A, B, sub);
+        $display("\tOutputs: S = %b, S_4 = %b, neg = %b, numSeg = %b, negSeg = %b", S, S_4, neg, numSeg, negSeg);
+      endfunction                        
     
 endmodule
 

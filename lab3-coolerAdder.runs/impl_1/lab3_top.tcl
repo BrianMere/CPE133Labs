@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab3-coolerAdder.runs/impl_1/lab3_top.tcl"
+  variable script "/home/brianm/Documents/Repos/CPE133Labs/lab3-coolerAdder.runs/impl_1/lab3_top.tcl"
   variable category "vivado_impl"
 }
 
@@ -125,12 +125,12 @@ start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
-  set_param checkpoint.writeSynthRtdsInDcp 1
-  set_param chipscope.maxJobs 2
-  set_param synth.incrementalSynthesisCache C:/Users/brian/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-12004-DESKTOP-OJK9U19/incrSyn
   set_param xicom.use_bs_reader 1
+  set_param chipscope.maxJobs 3
+  set_param checkpoint.writeSynthRtdsInDcp 1
+  set_param synth.incrementalSynthesisCache ./.Xil/Vivado-23897-brian-desktopPC/incrSyn
   open_checkpoint lab3_top_routed.dcp
-  set_property webtalk.parent_dir C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab3-coolerAdder.cache/wt [current_project]
+  set_property webtalk.parent_dir /home/brianm/Documents/Repos/CPE133Labs/lab3-coolerAdder.cache/wt [current_project]
 set_property TOP lab3_top [current_fileset]
 OPTRACE "read constraints: write_bitstream" START { }
 OPTRACE "read constraints: write_bitstream" END { }

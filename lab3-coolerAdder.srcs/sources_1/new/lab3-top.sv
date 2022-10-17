@@ -21,14 +21,15 @@
 
 
 module lab3_top(
+    input clk,
     input [3:0] A,
     input [3:0] B,
     input sub,
-    output [6:0] numSeg,
-    output [6:0] negSeg
+    output reg [3:0] numSeg,
+    output reg [3:0] an
     );
     
-    logic [3:0] S;
+    logic [3:0] S, ourNumSeg, ourNegSeg;
     logic neg;
     
     add_sub_struct ASS(
@@ -41,8 +42,22 @@ module lab3_top(
     num_2_display N2D(
         .S(S),
         .neg(neg),
-        .numSeg(numSeg),
-        .negSeg(negSeg));
+        .numSeg(ourNumSeg),
+        .negSeg(ourNegSeg));
+        
+    logic displayRightDigit = 1'b0;
+        
+    always @ (posedge clk) begin // run this on the rising edge of the clk signal given by the basys 3 board
+        if(displayRightDigit) begin
+            an = 4'b1110; // Turn on specific displays (remember, on when LOW)
+            numSeg = ourNumSeg;
+        end
+        else begin
+            an = 4'b1101;
+            numSeg = ourNegSeg;
+        end
+        displayRightDigit++;
+    end
         
     
 endmodule

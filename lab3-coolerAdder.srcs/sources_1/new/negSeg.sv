@@ -29,7 +29,8 @@ module negSeg(
     begin
         case(neg)
             1'b1: out = 7'b1111110;
-            default: out = 7'b1111111;
+            1'b0: out = 7'b1111111;
+            default: out = 7'b0000000;
         endcase
     end
 endmodule

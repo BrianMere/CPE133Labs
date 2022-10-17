@@ -19,7 +19,7 @@ module add_sub_struct(
 	logic notb, nCout, notS;
 	logic [3:0] Bin, Sout;
 	
-	not #0 (notb, B);
+	not (notb, B);
 	
 	Mux4bit2sel M1(
 	   .A(B),
@@ -37,30 +37,16 @@ module add_sub_struct(
 	.Cout(Cout)
 	);
 	
-	not #0 (nCout, Cout);
-	and #0 (neg, nCout, subtract); 
+	not (nCout, Cout);
+	and (neg, nCout, subtract); 
 	
-	not #0 (notS, Sout);
+	not (notS, Sout);
 	
 	Mux4bit2sel M2(
 	.A(Sout),
 	.B(notS),
 	.sel(neg),
 	.out(S));
-	
-	// instantiate module to limit values
-//	limit_val my_limit( .S(S), .L(L) );
-
-//	// instantiate module to drive 7-segment display
-//	//   (L) is a local signal
-//	//   .S  is a signal in the called module
-//	seg7 my_seg7( .val(L), .D(D) );
-	
-	// use digit 0 only. active low
-//	assign an = 4'b1110;
-	
-//	// decimal point off
-//	assign dp = 1'b1;
 
 endmodule
 
