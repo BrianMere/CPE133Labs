@@ -16,7 +16,8 @@ module add_sub_struct(
 	// local signals
 	// logic  Cin = 1'b0;
 	logic  Cout;
-	logic notb, nCout, notS;
+	logic [3:0] notS, notB;
+	logic nCout;
 	logic [3:0] Bin, Sout;
 	
 	not (notb, B);
@@ -40,7 +41,12 @@ module add_sub_struct(
 	not (nCout, Cout);
 	and (neg, nCout, subtract); 
 	
-	not (notS, Sout);
+	not (notS[0], Sout[0]);
+	not (notS[1], Sout[1]);
+	not (notS[2], Sout[2]);
+    not (notS[3], Sout[3]);
+
+
 	
 	Mux4bit2sel M2(
 	.A(Sout),

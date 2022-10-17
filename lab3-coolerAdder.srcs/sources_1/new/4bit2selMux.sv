@@ -35,9 +35,9 @@ module Mux4bit2sel(
     assign sel4[2] = sel;
     assign sel4[3] = sel; 
     
-    assign out1 = A & ~(sel);
+    assign out1 = A & ~(sel4);
     
-    assign out2 = B & sel;
+    assign out2 = B & sel4;
     
     assign out = out1 | out2;
     

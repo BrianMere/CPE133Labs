@@ -1,0 +1,23 @@
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot add_sub_display_sim_behav xil_defaultlib.add_sub_display_sim xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 4 for port 'B' [C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab3-coolerAdder.srcs/sources_1/imports/lab3_v2/add_sub_display.sv:27]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.Mux4bit2sel
+Compiling module xil_defaultlib.half_adder
+Compiling module xil_defaultlib.Full_Adder
+Compiling module xil_defaultlib.Adder_4bit
+Compiling module xil_defaultlib.add_sub_struct
+Compiling module xil_defaultlib.limit_val
+Compiling module xil_defaultlib.seg7
+Compiling module xil_defaultlib.negSeg
+Compiling module xil_defaultlib.num_2_display
+Compiling module xil_defaultlib.add_sub_display_sim
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot add_sub_display_sim_behav

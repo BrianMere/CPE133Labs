@@ -9,7 +9,7 @@ module add_sub_display_sim; //no ports to test module
 
     // declare inputs and outputs for your module
     // can be the same names as the ports of the module under test
-    logic [3:0] A, B, S, S_4;
+    logic [3:0] A, B, S;
     logic sub, neg;
     logic [6:0] numSeg;
     logic [6:0] negSeg;
@@ -17,7 +17,7 @@ module add_sub_display_sim; //no ports to test module
     //Instantiate your module undertest
     add_sub_struct add_sub_struct(  .A(A), .B(B), .subtract(sub), .S(S), .neg(neg)  );
     num_2_display num_2_display( .S(S), .neg(neg), .numSeg(numSeg), .negSeg(negSeg) );
-    Adder_4bit adder_4bit(.A(A), .B(B), .Cin(0), .S(S_4));
+    // Adder_4bit adder_4bit(.A(A), .B(B), .Cin(0), .S(S_4));
     // Mux4bit2sel mux(.A(...
 
     //list your test cases
@@ -46,34 +46,42 @@ module add_sub_display_sim; //no ports to test module
       end  
       
       function void test(reg [3:0] A, reg [3:0] B, reg sub);
-        if(S_4 != A + B)
-            begin
-                printFailedTest("Failed Test on Adder_4bit");
-            end
-        if(sub)
-            begin
-            if(S != A - B) 
-                begin
-                    printFailedTest("Failed Test on add_sub_struct module.");
-                end             
-            end
-        else 
-            begin
-            if(S != A + B)
-                begin
-                    printFailedTest("Failed Test on add_sub_struct module.");
-                end
-            end
-            
-        // TODO: add checks for numSeg and negSeg
-            
+      
+      //Adder Tests
+      if(sub & S != A - B)
+        begin
+            printFailedTest("Failed Test on Adder_4bit");
+        end  
+      else if (~sub & S != A + B)
+        begin
+            printFailedTest("Failed Test on Adder_4bit");
+        end 
+        
+      //Display Tests
+      
+//      if(neg)
+//        begin
+//            if(numSeg != )
+//        end
       endfunction
       
-      function void printFailedTest(String message);
+      function void printFailedTest(string message);
         $display("Test Failed: \n"); 
         $display("\tInputs: A = %b, B = %b, sub = %b", A, B, sub);
-        $display("\tOutputs: S = %b, S_4 = %b, neg = %b, numSeg = %b, negSeg = %b", S, S_4, neg, numSeg, negSeg);
-      endfunction                        
+        $display("\tOutputs: S = %b, neg = %b, numSeg = %b, negSeg = %b", S, neg, numSeg, negSeg);
+      endfunction   
+      
+//      function bit get7SegFromNum(reg [3:0] S, reg neg);
+//      begin
+//        int S_local;
+//        if(S > 9)
+//        begin
+//            S_local = 9;
+//        end
+//        case(S)
+//            4'b0000: return 7'b0000001;
+//            4'b0001: return 
+//      end                     
     
 endmodule
 
