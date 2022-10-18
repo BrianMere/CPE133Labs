@@ -28,17 +28,17 @@ module Mux4bit2sel(
     );
     
     logic [3:0] sel4;
-    logic out1, out2;
+    logic [3:0] out1, out2;
+    logic [3:0] nSel;
     
     assign sel4[0] = sel;
     assign sel4[1] = sel;
     assign sel4[2] = sel;
     assign sel4[3] = sel; 
     
-    assign out1 = A & ~(sel4);
-    
-    assign out2 = B & sel4;
-    
+    assign nSel =  ~sel4;
+    assign out1 =  A & nSel;
+    assign out2 =  B & sel4;
     assign out = out1 | out2;
     
 endmodule

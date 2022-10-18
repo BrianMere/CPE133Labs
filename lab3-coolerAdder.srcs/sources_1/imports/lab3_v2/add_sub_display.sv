@@ -20,11 +20,15 @@ module add_sub_struct(
 	logic nCout;
 	logic [3:0] Bin, Sout;
 	
-	not (notb, B);
+	not (notB[0], B[0]);
+	not (notB[1], B[1]);
+	not (notB[2], B[2]);
+	not (notB[3], B[3]);
+	
 	
 	Mux4bit2sel M1(
 	   .A(B),
-	   .B(notb),
+	   .B(notB),
 	   .sel(subtract),
 	   .out(Bin));
 	   

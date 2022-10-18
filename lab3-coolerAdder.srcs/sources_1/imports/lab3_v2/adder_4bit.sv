@@ -9,7 +9,7 @@ module Adder_4bit(
 	input [3:0] B,
 	input  Cin,
 	output [3:0] S,
-	output  Cout
+	output Cout
 	);
 
 	// local signals

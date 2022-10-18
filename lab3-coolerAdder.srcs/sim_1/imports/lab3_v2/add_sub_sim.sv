@@ -10,15 +10,14 @@ module add_sub_display_sim; //no ports to test module
     // declare inputs and outputs for your module
     // can be the same names as the ports of the module under test
     logic [3:0] A, B, S;
+    // logic Cout, Cin;
     logic sub, neg;
-    logic [6:0] numSeg;
-    logic [6:0] negSeg;
+//    logic [6:0] numSeg;
+//    logic [6:0] negSeg;
     
     //Instantiate your module undertest
-    add_sub_struct add_sub_struct(  .A(A), .B(B), .subtract(sub), .S(S), .neg(neg)  );
-    num_2_display num_2_display( .S(S), .neg(neg), .numSeg(numSeg), .negSeg(negSeg) );
-    // Adder_4bit adder_4bit(.A(A), .B(B), .Cin(0), .S(S_4));
-    // Mux4bit2sel mux(.A(...
+//    lab3-top TOP(.clk(
+    add_sub_struct ASStruct(.A(A), .B(B), .subtract(sub), .S(S), .neg(neg));
 
     //list your test cases
     initial 
@@ -26,36 +25,43 @@ module add_sub_display_sim; //no ports to test module
         
         $display("Begin Testing...");
         
-        A = 4'b0000; B = 4'b0001; sub = 1'b0; // 0 + 1 = 1
-        #10
-        test(A, B, sub);
+        test(0001, 1111, 1); // 1 - 15 = -14
+        #1
+        test(0000, 0101, 1); // 0 - 5 = -5
+        #1
+        test(1001, 1001, 0);
+        #1
+        test(1111, 1111, 1);
+        #1
+        test(1111, 1110, 0);
+        #1
+        test(0001, 0000, 0);
         
-        A = 4'b1111; B = 4'b0001; sub = 1'b1; // 15 - 1 = 14
-        #10
-        test(A, B, sub);
-
-        A = 4'b0000; B = 4'b0000; sub = 1'b1; // 0 - 0 = 0
-        #10
-        test(A, B, sub);
-        
-        A = 4'b0001; B = 4'b1111; sub = 1'b1; // 1 - 15 = -14
-        #10
-        test(A, B, sub);
 
        $display("Finished");  
       end  
       
-      function void test(reg [3:0] A, reg [3:0] B, reg sub);
+      function void test(reg[3:0] X, reg [3:0] Y, reg Z);
+      A = X;
+      B = Y;
+      sub = Z;
+        if(Z & S != X - Y | ~Z & S != X + Y)
+            $display("Issue");
+        if(Z & X > Y & ~neg | Z & X < Y & neg)
+            $display("Neg issue");
+      endfunction
+      
+      // function void test(reg [3:0] A, reg [3:0] B, reg sub);
       
       //Adder Tests
-      if(sub & S != A - B)
-        begin
-            printFailedTest("Failed Test on Adder_4bit");
-        end  
-      else if (~sub & S != A + B)
-        begin
-            printFailedTest("Failed Test on Adder_4bit");
-        end 
+//      if(sub & S != A - B)
+//        begin
+//            printFailedTest("Failed Test on Adder_4bit");
+//        end  
+//      else if (~sub & S != A + B)
+//        begin
+//            printFailedTest("Failed Test on Adder_4bit");
+//        end 
         
       //Display Tests
       
@@ -63,13 +69,13 @@ module add_sub_display_sim; //no ports to test module
 //        begin
 //            if(numSeg != )
 //        end
-      endfunction
+      // endfunction
       
-      function void printFailedTest(string message);
-        $display("Test Failed: \n"); 
-        $display("\tInputs: A = %b, B = %b, sub = %b", A, B, sub);
-        $display("\tOutputs: S = %b, neg = %b, numSeg = %b, negSeg = %b", S, neg, numSeg, negSeg);
-      endfunction   
+//      function void printFailedTest(string message);
+//        $display("Test Failed: \n"); 
+//        $display("\tInputs: A = %b, B = %b, sub = %b", A, B, sub);
+//        $display("\tOutputs: S = %b, neg = %b, numSeg = %b, negSeg = %b", S, neg, numSeg, negSeg);
+//      endfunction   
       
 //      function bit get7SegFromNum(reg [3:0] S, reg neg);
 //      begin

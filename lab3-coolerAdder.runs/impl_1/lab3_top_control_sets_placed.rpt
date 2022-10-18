@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.1 (lin64) Build 3526262 Mon Apr 18 15:47:01 MDT 2022
-| Date         : Fri Oct 14 22:40:20 2022
+| Date         : Mon Oct 17 21:59:40 2022
 | Host         : brian-desktopPC running 64-bit Manjaro Linux
 | Command      : report_control_sets -verbose -file lab3_top_control_sets_placed.rpt
 | Design       : lab3_top
@@ -27,7 +27,7 @@ Table of Contents
 |    Minimum number of control sets                        |     2 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |     9 |
+| Unused register locations in slices containing registers |    14 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -42,8 +42,8 @@ Table of Contents
 | Total control sets |     2 |
 | >= 0 to < 4        |     1 |
 | >= 4 to < 6        |     0 |
-| >= 6 to < 8        |     1 |
-| >= 8 to < 10       |     0 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     1 |
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
@@ -58,7 +58,7 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               6 |            4 |
+| No           | No                    | No                     |               9 |            3 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |               1 |            1 |
 | Yes          | No                    | No                     |               0 |            0 |
@@ -74,7 +74,7 @@ Table of Contents
 |  Clock Signal  | Enable Signal |  Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
 +----------------+---------------+-------------------+------------------+----------------+--------------+
 |  clk_IBUF_BUFG |               | displayRightDigit |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG |               |                   |                4 |              6 |         1.50 |
+|  clk_IBUF_BUFG |               |                   |                3 |              9 |         3.00 |
 +----------------+---------------+-------------------+------------------+----------------+--------------+
 
 
