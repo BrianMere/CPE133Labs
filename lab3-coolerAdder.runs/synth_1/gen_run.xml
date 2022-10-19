@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1666069115" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/lab3_top.dcp">
-  <File Type="VDS-TIMINGSUMMARY" Name="lab3_top_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="lab3_top.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="lab3_top_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="lab3_top_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="lab3_top_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="lab3_top.vds"/>
-  <File Type="REPORTS-TCL" Name="lab3_top_reports.tcl"/>
-  <File Type="VDS-TIMING-PB" Name="lab3_top_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1666220417" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/lab3_top.dcp">
   <File Type="PA-TCL" Name="lab3_top.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="lab3_top_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="lab3_top_reports.tcl"/>
+  <File Type="RDS-RDS" Name="lab3_top.vds"/>
+  <File Type="RDS-UTIL" Name="lab3_top_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="lab3_top_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="lab3_top.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="lab3_top_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="lab3_top_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/4bit2selMux.sv">

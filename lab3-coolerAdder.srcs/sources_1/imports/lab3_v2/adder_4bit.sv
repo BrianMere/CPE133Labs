@@ -4,11 +4,11 @@
 // 
 ////////////////////////
 
-module Adder_4bit(
-	input [3:0] A,
-	input [3:0] B,
+module Adder_5bit(
+	input [4:0] A,
+	input [4:0] B,
 	input  Cin,
-	output [3:0] S,
+	output [4:0] S,
 	output Cout
 	);
 
@@ -16,6 +16,8 @@ module Adder_4bit(
 	logic  C1;
 	logic  C2;
 	logic  C3;
+	logic  C4;
+	
 
 	// instantiate lower-level modules
 	Full_Adder FA0(
@@ -47,6 +49,14 @@ module Adder_4bit(
 	.B(B[3]),
 	.Cin(C3),
 	.S(S[3]),
+	.Cout(C4)
+	);
+	
+	Full_Adder FA4(
+	.A(A[4]),
+	.B(B[4]),
+	.Cin(C4),
+	.S(S[4]),
 	.Cout(Cout)
 	);
 

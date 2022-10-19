@@ -31,6 +31,7 @@ module num_2_display(
     
     limit_val L(
         .S(S),
+        .neg(neg),
         .out(LimitOut));
     
     seg7 S7(

@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/brianm/Documents/Repos/CPE133Labs/lab3-coolerAdder.runs/synth_1/lab3_top.tcl"
+  variable script "C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab3-coolerAdder.runs/synth_1/lab3_top.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,10 +70,10 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param xicom.use_bs_reader 1
-set_param chipscope.maxJobs 3
 set_param checkpoint.writeSynthRtdsInDcp 1
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-24991-brian-desktopPC/incrSyn
+set_param chipscope.maxJobs 2
+set_param synth.incrementalSynthesisCache C:/Users/brian/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-14428-DESKTOP-OJK9U19/incrSyn
+set_param xicom.use_bs_reader 1
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -82,25 +82,25 @@ create_project -in_memory -part xc7a35tcpg236-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir /home/brianm/Documents/Repos/CPE133Labs/lab3-coolerAdder.cache/wt [current_project]
-set_property parent.project_path /home/brianm/Documents/Repos/CPE133Labs/lab3-coolerAdder.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab3-coolerAdder.cache/wt [current_project]
+set_property parent.project_path C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab3-coolerAdder.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo /home/brianm/Documents/Repos/CPE133Labs/lab3-coolerAdder.cache/ip [current_project]
+set_property ip_output_repo c:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab3-coolerAdder.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib -sv {
-  /home/brianm/Documents/Repos/CPE133Labs/lab3-coolerAdder.srcs/sources_1/new/4bit2selMux.sv
-  /home/brianm/Documents/Repos/CPE133Labs/lab3-coolerAdder.srcs/sources_1/imports/lab3_v2/add_sub_display.sv
-  /home/brianm/Documents/Repos/CPE133Labs/lab3-coolerAdder.srcs/sources_1/imports/lab3_v2/adder_4bit.sv
-  /home/brianm/Documents/Repos/CPE133Labs/lab3-coolerAdder.srcs/sources_1/imports/lab3_v2/full_adder.sv
-  /home/brianm/Documents/Repos/CPE133Labs/lab3-coolerAdder.srcs/sources_1/new/half_adder.sv
-  /home/brianm/Documents/Repos/CPE133Labs/lab3-coolerAdder.srcs/sources_1/imports/lab3_v2/limit_val.sv
-  /home/brianm/Documents/Repos/CPE133Labs/lab3-coolerAdder.srcs/sources_1/new/negSeg.sv
-  /home/brianm/Documents/Repos/CPE133Labs/lab3-coolerAdder.srcs/sources_1/new/num_2_display.sv
-  /home/brianm/Documents/Repos/CPE133Labs/lab3-coolerAdder.srcs/sources_1/imports/lab3_v2/seg7.sv
-  /home/brianm/Documents/Repos/CPE133Labs/lab3-coolerAdder.srcs/sources_1/new/lab3-top.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab3-coolerAdder.srcs/sources_1/new/4bit2selMux.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab3-coolerAdder.srcs/sources_1/imports/lab3_v2/add_sub_display.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab3-coolerAdder.srcs/sources_1/imports/lab3_v2/adder_4bit.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab3-coolerAdder.srcs/sources_1/imports/lab3_v2/full_adder.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab3-coolerAdder.srcs/sources_1/new/half_adder.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab3-coolerAdder.srcs/sources_1/imports/lab3_v2/limit_val.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab3-coolerAdder.srcs/sources_1/new/negSeg.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab3-coolerAdder.srcs/sources_1/new/num_2_display.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab3-coolerAdder.srcs/sources_1/imports/lab3_v2/seg7.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab3-coolerAdder.srcs/sources_1/new/lab3-top.sv
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -111,12 +111,12 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc /home/brianm/Documents/Repos/CPE133Labs/lab3-coolerAdder.srcs/constrs_1/imports/lab3_v2/Basys3_constraints.xdc
-set_property used_in_implementation false [get_files /home/brianm/Documents/Repos/CPE133Labs/lab3-coolerAdder.srcs/constrs_1/imports/lab3_v2/Basys3_constraints.xdc]
+read_xdc C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab3-coolerAdder.srcs/constrs_1/imports/lab3_v2/Basys3_constraints.xdc
+set_property used_in_implementation false [get_files C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab3-coolerAdder.srcs/constrs_1/imports/lab3_v2/Basys3_constraints.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental /home/brianm/Documents/Repos/CPE133Labs/lab3-coolerAdder.srcs/utils_1/imports/synth_1/lab3_top.dcp
+read_checkpoint -auto_incremental -incremental C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab3-coolerAdder.srcs/utils_1/imports/synth_1/lab3_top.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
