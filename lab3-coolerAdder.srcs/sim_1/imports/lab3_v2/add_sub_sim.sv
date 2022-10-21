@@ -25,17 +25,19 @@ module add_sub_display_sim; //no ports to test module
         
         $display("Begin Testing...");
         
-        test(0001, 1111, 1); // 1 - 15 = -14
+        test(4'b0001, 4'b1111, 1'b1); // 1 - 15 = -14
         #1
-        test(0000, 0101, 1); // 0 - 5 = -5
+        test(4'b0000, 4'b0101, 1'b1); // 0 - 5 = -5
         #1
-        test(1001, 1001, 0);
+        test(4'b1001, 4'b1001, 1'b0);
         #1
-        test(1111, 1111, 1);
+        test(4'b1111, 4'b1111, 1'b1);
         #1
-        test(1111, 1110, 0);
+        test(4'b1111, 4'b1110, 1'b0);
         #1
-        test(0001, 0000, 0);
+        test(4'b0001, 4'b0000, 1'b0);
+        #1
+        test(4'b0000, 4'b0000, 1'b1);
         
 
        $display("Finished");  

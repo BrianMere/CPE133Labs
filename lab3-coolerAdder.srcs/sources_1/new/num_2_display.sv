@@ -21,7 +21,7 @@
 
 
 module num_2_display(
-    input [3:0] S,
+    input [4:0] S,
     input neg,
     output [6:0] numSeg,
     output [6:0] negSeg

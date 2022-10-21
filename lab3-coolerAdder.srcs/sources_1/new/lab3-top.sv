@@ -29,7 +29,7 @@ module lab3_top(
     output reg [3:0] an
     );
     
-    logic [3:0] S;
+    logic [4:0] S;
     logic [6:0] ourNumSeg, ourNegSeg;
     logic neg;
     

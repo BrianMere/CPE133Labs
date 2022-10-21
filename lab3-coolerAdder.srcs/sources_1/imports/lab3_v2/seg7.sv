@@ -23,7 +23,7 @@ module seg7(
 	       4'b0111: D = 7'b0001111; //7
 	       4'b1000: D = 7'b0000000; //8
 	       4'b1001: D = 7'b0000100; //9
-	       default: D = 7'b1111111;    // always include default case! For our case have it be off. 
+	       default: D = 7'b1001000;  //H  // always include default case! For our case have it be off. 
 	   endcase 
 	end
 

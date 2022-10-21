@@ -15,15 +15,15 @@ module add_sub_struct(
 
 	// local signals
 	logic  Cout;
-	logic [3:0] notS, notB;
+	logic [3:0] notB;
 	logic [4:0] A_in, B_in;
 	logic nCout;
-	logic [3:0] Bin, Sout;
+	logic [4:0] Bin;
 	
-	not (notB[0], B[0]);
-	not (notB[1], B[1]);
-	not (notB[2], B[2]);
-	not (notB[3], B[3]);
+	not #0 (notB[0], B[0]);
+	not #0 (notB[1], B[1]);
+	not #0 (notB[2], B[2]);
+	not #0 (notB[3], B[3]);
 	
 	
 	Mux4bit2sel M1(
@@ -42,7 +42,7 @@ module add_sub_struct(
 	assign B_in[1] = Bin[1];
 	assign B_in[2] = Bin[2];
 	assign B_in[3] = Bin[3];
-	assign B_in[4] = 0;
+	assign B_in[4] = subtract;
 
 	// instantiate lower-level modules
 	Adder_5bit A5(
@@ -54,7 +54,9 @@ module add_sub_struct(
 	);
 	
 	// not (nCout, Cout);
-	and (neg, Cout, subtract); 
+	//and (neg, Cout, subtract); 
+    and #0 (neg, S[4], subtract); 
+
 	
 //	not (notS[0], Sout[0]);
 //	not (notS[1], Sout[1]);
