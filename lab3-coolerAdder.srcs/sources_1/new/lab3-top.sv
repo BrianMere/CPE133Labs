@@ -46,22 +46,22 @@ module lab3_top(
         .numSeg(ourNumSeg),
         .negSeg(ourNegSeg));
         
-//    assign an = 4'b1110;
-//    assign numSeg = ourNumSeg;
+    assign an = 4'b1110;
+    assign numSeg = ourNumSeg;
         
-    bit displayRightDigit = 1'b0;
+//    bit displayRightDigit = 1'b0;
         
-    always @ (posedge clk) begin // run this on the rising edge of the clk signal given by the basys 3 board
-        if(displayRightDigit) begin
-            an = 4'b1110; // Turn on specific displays (remember, on when LOW)
-            numSeg = ourNumSeg;
-        end
-        else begin
-            an = 4'b1101;
-            numSeg = ourNegSeg;
-        end
-        displayRightDigit = ~displayRightDigit;
-    end
+//    always @ (posedge clk) begin // run this on the rising edge of the clk signal given by the basys 3 board
+//        if(displayRightDigit) begin
+//            an = 4'b1110; // Turn on specific displays (remember, on when LOW)
+//            numSeg = ourNumSeg;
+//        end
+//        else begin
+//            an = 4'b1101;
+//            numSeg = ourNegSeg;
+//        end
+//        displayRightDigit = ~displayRightDigit;
+//    end
         
     
 endmodule

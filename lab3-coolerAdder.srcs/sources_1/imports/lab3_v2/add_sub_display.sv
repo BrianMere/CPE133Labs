@@ -47,7 +47,7 @@ module add_sub_struct(
 	// instantiate lower-level modules
 	Adder_5bit A5(
 	.A(A),
-	.B(Bin),
+	.B(B_in),
 	.Cin(subtract),
 	.S(S),
 	.Cout(Cout)
