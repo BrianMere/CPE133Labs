@@ -22,14 +22,16 @@
 
 module max_counter(
     input clk,
+    input [3:0] Bin,
     input reset,
-    input [3:0] max,
     output out
     );
     
     logic [3:0] count;
     
     counter CNT(.clk(clk), .reset(reset), .count(count));
-    comparator CMP(.A(A), .B(count), .out(out));
+    comparator CMP(.A(Bin), .B(count), .out(out));
+    
+    
     
 endmodule

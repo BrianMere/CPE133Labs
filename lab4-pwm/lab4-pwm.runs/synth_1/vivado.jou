@@ -2,8 +2,8 @@
 # Vivado v2022.1 (64-bit)
 # SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
 # IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
-# Start of session at: Fri Oct 28 15:26:21 2022
-# Process ID: 14556
+# Start of session at: Mon Oct 31 15:27:27 2022
+# Process ID: 10352
 # Current directory: C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab4-pwm/lab4-pwm.runs/synth_1
 # Command line: vivado.exe -log max_counter.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source max_counter.tcl
 # Log file: C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab4-pwm/lab4-pwm.runs/synth_1/max_counter.vds
