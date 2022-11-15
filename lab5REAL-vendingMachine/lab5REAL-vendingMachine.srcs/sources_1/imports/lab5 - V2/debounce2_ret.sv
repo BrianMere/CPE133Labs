@@ -8,6 +8,8 @@
 //    cycle in duration - Hence one rising edge
 //
 //  by FWD and students in CPE 133-07 in Fall 2022
+//  Prior: This module will output one clock cycle per button press "cycle". Holding the button will output many smaller pulses.
+//  We've modified this code as to only put out ONE clock cycle per button press. Holding the button should only pulse once and only once. 
 //
 //  DEBOUCE_RET  db ( .clk(clk), .rst(rst), .btn(btn), .z(z) );
 //
@@ -26,6 +28,9 @@ module DEBOUCE_RET(
 	//    and the "h" means the number is specified in hex)
 	logic [23:0] count;
 	
+	// flag logic for button being held 
+	logic held;
+	
 	// change state on the rising edge of the clock
 	always_ff @ ( posedge clk , posedge rst )
 	begin
@@ -35,6 +40,7 @@ module DEBOUCE_RET(
 		begin
 			count <= 0;
 			z <= 0;
+			held <= 0;
 		end
 		
 		// button pressed
@@ -42,7 +48,7 @@ module DEBOUCE_RET(
 		begin
 		
 			// COUNTING state
-			if (count < 24'ha00000)
+			if (count < 24'ha00000 & !held)
 			begin
 				count <= count + 1;
 				z <= 0;
@@ -54,6 +60,7 @@ module DEBOUCE_RET(
 			begin
 				count <= 0;
 				z <= 1;
+				held <= 1;
 			end
 		end
 		
@@ -63,6 +70,7 @@ module DEBOUCE_RET(
 		begin
 			count <= 0;
 			z <= 0;
+			held <= 0;
 		end
 		
 	end

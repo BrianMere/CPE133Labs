@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Mon Nov 14 22:13:05 2022
+# Process ID: 37064
+# Current directory: /home/brianm/Documents/Repos/CPE133Labs/lab5REAL-vendingMachine/lab5REAL-vendingMachine.runs/synth_1
+# Command line: vivado -log push_count.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source push_count.tcl
+# Log file: /home/brianm/Documents/Repos/CPE133Labs/lab5REAL-vendingMachine/lab5REAL-vendingMachine.runs/synth_1/push_count.vds
+# Journal file: /home/brianm/Documents/Repos/CPE133Labs/lab5REAL-vendingMachine/lab5REAL-vendingMachine.runs/synth_1/vivado.jou
+# Running On: brian-desktopPC, OS: Linux, CPU Frequency: 3200.000 MHz, CPU Physical cores: 6, Host memory: 33578 MB
+#-----------------------------------------------------------
+source push_count.tcl -notrace
