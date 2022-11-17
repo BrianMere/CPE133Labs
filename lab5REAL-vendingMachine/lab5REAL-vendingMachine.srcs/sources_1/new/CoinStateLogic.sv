@@ -19,27 +19,181 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module CoinStateLogic(
+module coin_state_logic(
         input logic r,
         input logic n,
         input logic d,
-        input logic q, 
-        input logic clk, 
-        output logic V_ok
+        input logic q,
+        input logic b,
+        input logic [3:0] currentState, 
+        output logic [3:0] nextState
     );
+
+    // nextState should be output as the "number of nickels" :) lmao
     
-    logic [3:0] nickels; // number of nickels in our bank
-    
-    always_ff @ (posedge clk) begin
-        if(nickels == 4'b0000) begin
-            if(r)
-                nickels <= 4'b0000;
-            if(n & !d & !q)
-                nickels <= 4'b0001;
-            if(!n & d & !q)
-                nickels <= 4'b0010;
-            // TODO: ask if this is the right idea first ...
+    always_comb begin
+        if(currentState == 4'b0000) begin
+            if(r) begin
+                nextState <= 4'b0000;
+            end
+            else if(n) begin
+                nextState <= 4'b0001;
+            end
+            else if(d) begin
+                nextState <= 4'b0010;
+            end
+            else if(q) begin
+                nextState <= 4'b0101;
+            end
+            else begin
+                nextState <= currentState;
+            end
         end
         
+        else if(currentState == 4'b0001) begin
+            if(r) begin
+                nextState <= 4'b0000;
+            end
+            else if(n) begin
+                nextState <= 4'b0010;
+            end
+            else if(d) begin
+                nextState <= 4'b0011;
+            end
+            else if(q) begin
+                nextState <= 4'b0110;
+            end
+            else begin
+                nextState <= currentState;
+            end
+        end
+       
+       else if(currentState == 4'b0010) begin
+            if(r) begin
+                nextState <= 4'b0000;
+            end
+            else if(n) begin
+                nextState <= 4'b0011;
+            end
+            else if(d) begin
+                nextState <= 4'b0100;
+            end
+            else if(q) begin
+                nextState <= 4'b0111;
+            end
+            else begin
+                nextState <= currentState;
+            end
+        end
+        
+        else if(currentState == 4'b0011) begin
+            if(r) begin
+                nextState <= 4'b0000;
+            end
+            else if(n) begin
+                nextState <= 4'b0100;
+            end
+            else if(d) begin
+                nextState <= 4'b0101;
+            end
+            else if(q) begin
+                nextState <= 4'b1000;
+            end
+            else begin
+                nextState <= currentState;
+            end
+        end
+        
+        else if(currentState == 4'b0100) begin
+            if(r) begin
+                nextState <= 4'b0000;
+            end
+            else if(n) begin
+                nextState <= 4'b0101;
+            end
+            else if(d) begin
+                nextState <= 4'b0110;
+            end
+            else if(q) begin
+                nextState <= 4'b0000;
+            end
+            else begin
+                nextState <= currentState;
+            end
+        end
+        
+        else if(currentState == 4'b0101) begin
+            if(r) begin
+                nextState <= 4'b0000;
+            end
+            else if(n) begin
+                nextState <= 4'b0110;
+            end
+            else if(d) begin
+                nextState <= 4'b0111;
+            end
+            else if(q) begin
+                nextState <= 4'b0000;
+            end
+            else begin
+                nextState <= currentState;
+            end
+        end
+        
+        else if(currentState == 4'b0110) begin
+            if(r) begin
+                nextState <= 4'b0000;
+            end
+            else if(n) begin
+                nextState <= 4'b0111;
+            end
+            else if(d) begin
+                nextState <= 4'b1000;
+            end
+            else if(q) begin
+                nextState <= 4'b0000;
+            end
+            else begin
+                nextState <= currentState;
+            end
+        end
+        
+        else if(currentState == 4'b0111) begin
+            if(r) begin
+                nextState <= 4'b0000;
+            end
+            else if(n) begin
+                nextState <= 4'b1000;
+            end
+            else if(d) begin
+                nextState <= 4'b0000;
+            end
+            else if(q) begin
+                nextState <= 4'b0000;
+            end
+            else begin
+                nextState <= currentState;
+            end
+        end
+        
+        else if(currentState == 4'b1000) begin
+            if(b) begin
+                nextState <= 4'b1001;
+            end
+            else if (r || n || d || q) begin
+                nextState <= 4'b0000;
+            end
+            else begin
+                nextState <= currentState;
+            end
+        end
+        
+        else if(currentState == 4'b1001) begin
+            nextState <= 4'b0000;
+        end
+        
+        else begin
+            nextState <= 4'b0000;
+        end
     end
 endmodule

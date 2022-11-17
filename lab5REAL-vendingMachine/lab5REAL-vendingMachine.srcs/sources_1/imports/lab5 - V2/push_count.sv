@@ -7,10 +7,10 @@
 ////
 // //////////////////////
 
-module push_count(
+module button_db_rev(
 	input clk,
 	input btnC,
-	output logic [1:0] LED
+	output logic out
 	);
 
 	// local signals
@@ -21,11 +21,12 @@ module push_count(
 	DEBOUCE_RET  db ( .clk(clk), .rst(0), .btn(btnC), .z(btn_db) );
 	
 	// instantiate module to limit values
-	CTR3  my_ctr ( .clk(btn_db), .rst(0), .count(Q) );
+//	CTR3  my_ctr ( .clk(btn_db), .rst(0), .count(Q) );
 	
-	
-	assign LED[0] = Q[0];
-	assign LED[1] = Q[1];
+//	assign out[0] = Q[0];
+//	assign out[1] = Q[1];
+
+    assign out = btn_db;
 	
 
 endmodule

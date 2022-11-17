@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1668492783" LaunchIncrCheckpoint="$PPRDIR/../../../../C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab5REAL-vendingMachine/lab5REAL-vendingMachine.srcs/utils_1/imports/synth_1/push_count.dcp">
-  <File Type="VDS-TIMINGSUMMARY" Name="push_count_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="push_count.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="push_count_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="push_count_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="push_count_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="push_count.vds"/>
-  <File Type="REPORTS-TCL" Name="push_count_reports.tcl"/>
-  <File Type="VDS-TIMING-PB" Name="push_count_timing_summary_synth.pb"/>
-  <File Type="PA-TCL" Name="push_count.tcl"/>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1668643179" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/l5_top.dcp">
+  <File Type="PA-TCL" Name="l5_top.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="l5_top_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="l5_top_reports.tcl"/>
+  <File Type="RDS-RDS" Name="l5_top.vds"/>
+  <File Type="RDS-UTIL" Name="l5_top_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="l5_top_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="l5_top.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="l5_top_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="l5_top_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/imports/lab5 - V2/counter3.sv">
+    <File Path="$PSRCDIR/sources_1/new/CoinStateLogic.sv">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab5 - V2/lab5 - V2/counter3.sv"/>
-        <Attr Name="ImportTime" Val="1668467500"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -29,10 +27,36 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/lab5 - V2/push_count.sv">
+    <File Path="$PSRCDIR/sources_1/new/inputFilter.sv">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab5 - V2/lab5 - V2/push_count.sv"/>
-        <Attr Name="ImportTime" Val="1668467500"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/motorPulse.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/outputLogic.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/state_reg.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/l5_top.sv">
+      <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -40,7 +64,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="push_count"/>
+      <Option Name="TopModule" Val="l5_top"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
@@ -58,12 +82,11 @@
   </FileSet>
   <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
     <Filter Type="Utils"/>
-    <File Path="$PPRDIR/../../../../C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab5REAL-vendingMachine/lab5REAL-vendingMachine.srcs/utils_1/imports/synth_1/push_count.dcp">
+    <File Path="$PSRCDIR/utils_1/imports/synth_1/l5_top.dcp">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedInSteps" Val="synth_1"/>
-        <Attr Name="UsedInSteps" Val="synth_1_copy_1"/>
         <Attr Name="AutoDcp" Val="1"/>
       </FileInfo>
     </File>
@@ -72,9 +95,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

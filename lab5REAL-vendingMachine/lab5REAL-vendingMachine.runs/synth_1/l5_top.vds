@@ -1,14 +1,15 @@
-
-*** Running vivado
-    with args -log l5_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source l5_top.tcl
-
-
-
-****** Vivado v2022.1 (64-bit)
-  **** SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
-  **** IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
-    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Wed Nov 16 15:59:42 2022
+# Process ID: 3368
+# Current directory: C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab5REAL-vendingMachine/lab5REAL-vendingMachine.runs/synth_1
+# Command line: vivado.exe -log l5_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source l5_top.tcl
+# Log file: C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab5REAL-vendingMachine/lab5REAL-vendingMachine.runs/synth_1/l5_top.vds
+# Journal file: C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab5REAL-vendingMachine/lab5REAL-vendingMachine.runs/synth_1\vivado.jou
+# Running On: DESKTOP-OJK9U19, OS: Windows, CPU Frequency: 2803 MHz, CPU Physical cores: 4, Host memory: 16799 MB
+#-----------------------------------------------------------
 source l5_top.tcl -notrace
 Command: read_checkpoint -auto_incremental -incremental C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab5REAL-vendingMachine/lab5REAL-vendingMachine.srcs/utils_1/imports/synth_1/l5_top.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab5REAL-vendingMachine/lab5REAL-vendingMachine.srcs/utils_1/imports/synth_1/l5_top.dcp for incremental synthesis
