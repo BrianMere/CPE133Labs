@@ -18,9 +18,10 @@ module outputLogic(
             V_ok <= 0;
             m_signal <= 1;
         end
-        else
+        else begin
             V_ok <= 0;
             m_signal <= 0; //m_signal stops through the state logic making this happen :)
+        end
     end
     
 endmodule

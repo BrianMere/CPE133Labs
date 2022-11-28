@@ -56,6 +56,12 @@ module DEBOUCE_RET(
 			
 			// MAX_COUNT reached
 			//  clear output, providing a pulse that is one clock cycle
+			else if (held)
+			begin
+			count <= 0;
+			z <= 0;
+			held <= 1;
+		    end
 			else
 			begin
 				count <= 0;
@@ -63,15 +69,11 @@ module DEBOUCE_RET(
 				held <= 1;
 			end
 		end
-		
+		else begin
+		held <= 0;
+		end
 		// btn released or intermittent btn signal or count reached and cleared.
 		//  go to RESET state
-		else
-		begin
-			count <= 0;
-			z <= 0;
-			held <= 0;
-		end
 		
 	end
 

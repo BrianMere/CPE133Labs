@@ -28,7 +28,7 @@ module motorPulse(
     
     logic [24:0] count;
     
-    always_ff @ (posedge clk) begin
+    always_ff @ (posedge !clk) begin  //maybe change m_signal
     if (m_signal) begin
         m_pulse <= 1;
     end
@@ -36,7 +36,7 @@ module motorPulse(
 	   count <= count + 1;
 	end
 	if (count[24] ==1) begin
-	   count <= 24'b0;
+	   count <= 25'b0;
 	   m_pulse <= 0;
 	end
     end

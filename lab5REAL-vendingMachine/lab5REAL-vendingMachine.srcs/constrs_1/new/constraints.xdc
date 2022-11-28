@@ -6,7 +6,7 @@
 # Clock signal
 set_property PACKAGE_PIN W5 [get_ports clk]							
 	set_property IOSTANDARD LVCMOS33 [get_ports clk]
-	create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports clk]
+	create_clock -add -name clk -period 10.00 -waveform {0 5} [get_ports clk]
  
 # Switches
 #set_property PACKAGE_PIN V17 [get_ports {sw[0]}]					
@@ -48,14 +48,14 @@ set_property PACKAGE_PIN U16 [get_ports {LED[0]}]
 	set_property IOSTANDARD LVCMOS33 [get_ports {LED[0]}]
 set_property PACKAGE_PIN E19 [get_ports {LED[1]}]					
 	set_property IOSTANDARD LVCMOS33 [get_ports {LED[1]}]
-#set_property PACKAGE_PIN U19 [get_ports {LED[2]}]					
-#	set_property IOSTANDARD LVCMOS33 [get_ports {LED[2]}]
-#set_property PACKAGE_PIN V19 [get_ports {LED[3]}]					
-#	set_property IOSTANDARD LVCMOS33 [get_ports {LED[3]}]
-#set_property PACKAGE_PIN W18 [get_ports {LED[4]}]					
-#	set_property IOSTANDARD LVCMOS33 [get_ports {LED[4]}]
-#set_property PACKAGE_PIN U15 [get_ports {LED[5]}]					
-#	set_property IOSTANDARD LVCMOS33 [get_ports {LED[5]}]
+set_property PACKAGE_PIN U19 [get_ports {C_LED[0]}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {C_LED[0]}]
+set_property PACKAGE_PIN V19 [get_ports {C_LED[1]}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {C_LED[1]}]
+set_property PACKAGE_PIN W18 [get_ports {C_LED[2]}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {C_LED[2]}]
+set_property PACKAGE_PIN U15 [get_ports {C_LED[3]}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {C_LED[3]}]
 #set_property PACKAGE_PIN U14 [get_ports {LED[6]}]					
 #	set_property IOSTANDARD LVCMOS33 [get_ports {LED[6]}]
 #set_property PACKAGE_PIN V14 [get_ports {LED[7]}]					
@@ -108,16 +108,21 @@ set_property PACKAGE_PIN E19 [get_ports {LED[1]}]
 
 
 ##Buttons
-set_property PACKAGE_PIN U18 [get_ports {D}]	# center					
-	set_property IOSTANDARD LVCMOS33 [get_ports {D}]
-set_property PACKAGE_PIN T18 [get_ports {B}]	# up					
-	set_property IOSTANDARD LVCMOS33 [get_ports {B}]
-set_property PACKAGE_PIN W19 [get_ports {N}]   # left				
-	set_property IOSTANDARD LVCMOS33 [get_ports {N}]
-set_property PACKAGE_PIN T17 [get_ports {Q}]	# right					
-	set_property IOSTANDARD LVCMOS33 [get_ports {Q}]
-set_property PACKAGE_PIN U17 [get_ports {R}]	# down					
-	set_property IOSTANDARD LVCMOS33 [get_ports {R}]
+# center
+set_property PACKAGE_PIN U18 [get_ports D]					
+	set_property IOSTANDARD LVCMOS33 [get_ports D]
+# up
+set_property PACKAGE_PIN T18 [get_ports B]					
+	set_property IOSTANDARD LVCMOS33 [get_ports B]
+# left
+set_property PACKAGE_PIN W19 [get_ports N]				
+	set_property IOSTANDARD LVCMOS33 [get_ports N]
+# right
+set_property PACKAGE_PIN T17 [get_ports Q]					
+	set_property IOSTANDARD LVCMOS33 [get_ports Q]
+# down	
+set_property PACKAGE_PIN U17 [get_ports R]				
+	set_property IOSTANDARD LVCMOS33 [get_ports R]
  
 
 
