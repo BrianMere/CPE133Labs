@@ -2,8 +2,8 @@
 # Vivado v2022.1 (64-bit)
 # SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
 # IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
-# Start of session at: Wed Nov 16 15:59:42 2022
-# Process ID: 3368
+# Start of session at: Mon Nov 28 14:15:13 2022
+# Process ID: 13760
 # Current directory: C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab5REAL-vendingMachine/lab5REAL-vendingMachine.runs/synth_1
 # Command line: vivado.exe -log l5_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source l5_top.tcl
 # Log file: C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/lab5REAL-vendingMachine/lab5REAL-vendingMachine.runs/synth_1/l5_top.vds

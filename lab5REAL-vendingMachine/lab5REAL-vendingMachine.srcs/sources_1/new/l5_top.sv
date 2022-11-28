@@ -6,22 +6,22 @@
 
 
 module l5_top(
-        input logic N,
-        input logic D,
-        input logic Q,
-        input logic R,
-        input logic B,
+        input N,
+        input D,
+        input Q,
+        input R,
+        input B,
         input logic clk,
         output logic [1:0] LED
     );
     
     logic n_db, d_db, q_db, r_db, b_db;
     
-    DEBOUCE_RET sw_n ( .clk(clk), .rst(R), .btn(N), .z(d_db) );
+    DEBOUCE_RET sw_n ( .clk(clk), .rst(R), .btn(N), .z(n_db) );
     DEBOUCE_RET sw_d ( .clk(clk), .rst(R), .btn(D), .z(d_db) );
-    DEBOUCE_RET sw_q ( .clk(clk), .rst(R), .btn(Q), .z(d_db) );
-    DEBOUCE_RET sw_r ( .clk(clk), .rst(R), .btn(R), .z(d_db) );
-    DEBOUCE_RET sw_b ( .clk(clk), .rst(R), .btn(B), .z(d_db) );
+    DEBOUCE_RET sw_q ( .clk(clk), .rst(R), .btn(Q), .z(q_db) );
+    DEBOUCE_RET sw_r ( .clk(clk), .rst(R), .btn(R), .z(r_db) );
+    DEBOUCE_RET sw_b ( .clk(clk), .rst(R), .btn(B), .z(b_db) );
     
     logic n_filtered, d_filtered, q_filtered, r_filtered; // no need to filter b
     
