@@ -26,7 +26,7 @@ module motorPulse(
         output logic m_pulse
     );
     
-    logic [24:0] count;
+    logic [26:0] count; // clk is 100MHz so 10^8 so for 1 second we need to count to 10^8 which is equal to 0x5F5E100
     
     always_ff @ (posedge !clk) begin  //maybe change m_signal
     if (m_signal) begin
@@ -35,8 +35,8 @@ module motorPulse(
     if (m_pulse) begin
 	   count <= count + 1;
 	end
-	if (count[24] ==1) begin
-	   count <= 25'b0;
+	if (count[26] ==1) begin
+	   count <= 7'h5F5E100;
 	   m_pulse <= 0;
 	end
     end
