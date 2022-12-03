@@ -1,0 +1,16 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// TOP Module for final project
+//////////////////////////////////////////////////////////////////////////////////
+
+module proj_top(
+        input [3:0] switches,
+        input sub, 
+        input go,
+        input clk, 
+        output [7:0] LED,
+        output zero_flag
+    );
+    
+    
+endmodule

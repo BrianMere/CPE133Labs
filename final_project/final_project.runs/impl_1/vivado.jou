@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Fri Dec  2 15:58:57 2022
+# Process ID: 19748
+# Current directory: C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.runs/impl_1
+# Command line: vivado.exe -log add_sub_struct.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source add_sub_struct.tcl -notrace
+# Log file: C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.runs/impl_1/add_sub_struct.vdi
+# Journal file: C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.runs/impl_1\vivado.jou
+# Running On: DESKTOP-OJK9U19, OS: Windows, CPU Frequency: 2803 MHz, CPU Physical cores: 4, Host memory: 16799 MB
+#-----------------------------------------------------------
+source add_sub_struct.tcl -notrace
