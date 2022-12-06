@@ -10,7 +10,7 @@ module Mux4bit4sel(
         input [3:0] B,
         input [3:0] C,
         input [3:0] D,
-        output [3:0] out
+        output logic [3:0] out
     );
     
     always_comb begin

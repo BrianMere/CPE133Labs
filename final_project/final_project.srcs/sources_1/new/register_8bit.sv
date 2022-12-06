@@ -8,7 +8,7 @@ module register_8bit(
         input clk, 
         input [7:0] data,
         input reset,
-        output q
+        output logic q
     );
     
     always_ff @ (posedge clk, posedge reset) begin

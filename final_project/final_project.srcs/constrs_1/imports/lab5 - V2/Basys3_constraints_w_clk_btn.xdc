@@ -9,7 +9,9 @@
 ## Clock signal
 set_property PACKAGE_PIN W5 [get_ports clk]
 set_property IOSTANDARD LVCMOS33 [get_ports clk]
-create_clock -period 10.000 -name sys_clk_pin -waveform {0.000 5.000} -add [get_ports clk]
+create_clock -period 1000000.000 -name sys_clk_pin -waveform {0.000 5.000} -add [get_ports clk]
+
+## I lowered the clock to 1000000.000 for 1Khz I presume, but normally can use 10.000 for 10MHz
 
 #set_property DIFF_TERM false [get_ports clk]
 #set_property DIFF_TERM false [get_ports sys_clk_p]
@@ -64,22 +66,22 @@ set_property IOSTANDARD LVCMOS33 [get_ports {sub}]
 
 
 ## LEDs (version used for debugging)
-#set_property PACKAGE_PIN U16 [get_ports {out[0]}]
-#	set_property IOSTANDARD LVCMOS33 [get_ports {out[0]}]
-#set_property PACKAGE_PIN E19 [get_ports {out[1]}]
-#	set_property IOSTANDARD LVCMOS33 [get_ports {out[1]}]
-#set_property PACKAGE_PIN U19 [get_ports {out[2]}]
-#	set_property IOSTANDARD LVCMOS33 [get_ports {out[2]}]
-#set_property PACKAGE_PIN V19 [get_ports {out[3]}]
-#	set_property IOSTANDARD LVCMOS33 [get_ports {out[3]}]
-#set_property PACKAGE_PIN W18 [get_ports {out[4]}]
-#	set_property IOSTANDARD LVCMOS33 [get_ports {out[4]}]
-#set_property PACKAGE_PIN U15 [get_ports {out[5]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {out[5]}]
-#set_property PACKAGE_PIN U14 [get_ports {out[6]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {out[6]}]
-#set_property PACKAGE_PIN V14 [get_ports {out[7]}]
-#set_property IOSTANDARD LVCMOS33 [get_ports {out[7]}]
+set_property PACKAGE_PIN U16 [get_ports {LED[0]}]
+	set_property IOSTANDARD LVCMOS33 [get_ports {LED[0]}]
+set_property PACKAGE_PIN E19 [get_ports {LED[1]}]
+	set_property IOSTANDARD LVCMOS33 [get_ports {LED[1]}]
+set_property PACKAGE_PIN U19 [get_ports {LED[2]}]
+	set_property IOSTANDARD LVCMOS33 [get_ports {LED[2]}]
+set_property PACKAGE_PIN V19 [get_ports {LED[3]}]
+	set_property IOSTANDARD LVCMOS33 [get_ports {LED[3]}]
+set_property PACKAGE_PIN W18 [get_ports {LED[4]}]
+	set_property IOSTANDARD LVCMOS33 [get_ports {LED[4]}]
+set_property PACKAGE_PIN U15 [get_ports {LED[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {LED[5]}]
+set_property PACKAGE_PIN U14 [get_ports {LED[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {LED[6]}]
+set_property PACKAGE_PIN V14 [get_ports {LED[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {LED[7]}]
 #set_property PACKAGE_PIN V13 [get_ports {led[8]}]
 #set_property IOSTANDARD LVCMOS33 [get_ports {led[8]}]
 #set_property PACKAGE_PIN V3 [get_ports {led[9]}]
@@ -98,7 +100,9 @@ set_property IOSTANDARD LVCMOS33 [get_ports {sub}]
 #set_property IOSTANDARD LVCMOS33 [get_ports {neg}]
 
 ## LEDs (version for final project)
-set_property PACKAGE_PIN U16 [get_ports {zero_flag}]
+#set_property PACKAGE_PIN P1 [get_ports {go_out}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {go_out}]
+set_property PACKAGE_PIN L1 [get_ports {zero_flag}]
 	set_property IOSTANDARD LVCMOS33 [get_ports {zero_flag}]
 
 

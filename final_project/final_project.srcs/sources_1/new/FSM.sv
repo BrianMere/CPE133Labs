@@ -11,15 +11,16 @@ module FSM(
         input [7:0] calculator_state, // input from calculator (add_sub module)
         input [7:0] reg_A_state, // get input from the current value in reg_A
         input clk, // change state one at a time based on the computer's clock 
-        output [7:0] current_out_val, // Used instead of LEDs due to segment_control module
-        output add_sub, // input whether to add or subtract towards the compute module
-        output [7:0] reg_A, // send data to reg_A here ...
-        output [4:0] reg_B,  // send data to reg_B here ...
-        output zero_flag
+        output logic [7:0] current_out_val, // Used instead of LEDs due to segment_control module
+        output logic add_sub, // input whether to add or subtract towards the compute module
+        output logic [7:0] reg_A, // send data to reg_A here ...
+        output logic [4:0] reg_B,  // send data to reg_B here ...
+        output logic zero_flag,
+        output logic [2:0] currentState
     );
     
     // we are using a counter as the current state
-    logic [2:0] currentState = 3'b000;
+//    logic [2:0] currentState = 3'b000;
     
     // Overview of the states:
     // 0: Standby | Wait for 'go'
@@ -31,7 +32,7 @@ module FSM(
     logic [2:0] counter = 0;
     logic [7:0] adderOut;
     
-    always_ff @ (posedge clk) begin
+    always_comb begin
         if(currentState == 3'b000) begin // Standby
             if(go)
                 currentState <= 3'b001;
@@ -42,13 +43,14 @@ module FSM(
             currentState <= 3'b010;
         end
         else if(currentState == 3'b010) begin // Load B
-            if(count == 3'b000) // always just send the B data as early as possible, but you don't need to keep updating it ...
+            if(counter == 3'b000) // always just send the B data as early as possible, but you don't need to keep updating it ...
                 reg_B <= switches;
-            count = count + 1;
-            if(count == 3'b111) begin
+            else if(counter == 3'b111) begin
                 currentState <= 3'b011;
                 counter <= 3'b000;
             end
+            counter <= counter + 1;
+            
         end
         else if(currentState == 3'b011) begin // Get adder output 
             adderOut <= current_out_val;

@@ -8,14 +8,14 @@ module segment_control(
         input clk,
         input reset,
         input [7:0] binary_num,
-        output [3:0] an, // anode, for choosing the digit position
-        output [6:0] D, // parts of the seven-segment
-        output dp // decimal point
+        output logic [3:0] an, // anode, for choosing the digit position
+        output logic [6:0] D, // parts of the seven-segment
+        output logic dp // decimal point
     );
     
-    assign dp = 0; // we won't use our dp for our purposes
+    assign dp = 1; // we won't use our dp for our purposes. Again active low is 1.
     
-    logic [1:0] digit_counter = 0; // selector digit counter. Goes left to right (Left LED is always first)
+    
     logic [19:0] refresh_counter = 0; // counter for crating 2.6ms digit period as to allow distinct dark/light segments
     
     always_ff @ (posedge clk, posedge reset) begin
@@ -24,7 +24,8 @@ module segment_control(
         else
             refresh_counter <= refresh_counter + 1;
     end
-    assign digit_counter = refresh_counter[19:18]; // assign the digit we are looking at based on the largest two MSB's of the refresh_counter, thus counting up slower
+    logic [1:0] digit_counter = refresh_counter[19:18]; // selector digit counter. Goes left to right (Left LED is always first)
+    // assign the digit we are looking at based on the largest two MSB's of the refresh_counter, thus counting up slower
     
     logic [4:0] LED0, LED1, LED2, LED3;
     
@@ -33,7 +34,8 @@ module segment_control(
         .A(LED0),
         .B(LED1),
         .C(LED2),
-        .D(LED3)
+        .D(LED3),
+        .clk(clk)
     );
     
     logic [3:0] display_bin;
