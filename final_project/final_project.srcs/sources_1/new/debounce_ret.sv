@@ -13,9 +13,10 @@
 //
 //  DEBOUCE_RET  db ( .clk(clk), .rst(rst), .btn(btn), .z(z) );
 //
+//  This module came from lab 5 ...
 // //////////////////////
 
-module DEBOUCE_RET(
+module DEBOUNCE_RET(
 	input logic clk,
 	input logic rst,
 	input logic btn,
