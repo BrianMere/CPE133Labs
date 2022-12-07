@@ -16,8 +16,8 @@ module limit_val(
 	   if (neg) begin
 	       out = 8'b00000000;
 	   end
-	   else if (S > 9'b100000001) begin // range for 8 bit numbers is from +129 to 0
-	       out = 8'b11111111; //8'b10000001
+	   else if (S > 9'b100000001) begin // range for 8 bit numbers is from +255 to 0 so make sure if S > 2^8 we limit
+	       out = 8'b11111111; //8'b11111111
 	   end
 	   else begin
 	       out[7:0] = S[7:0]; 

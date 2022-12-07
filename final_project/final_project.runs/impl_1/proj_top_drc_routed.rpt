@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.1 (lin64) Build 3526262 Mon Apr 18 15:47:01 MDT 2022
-| Date         : Tue Dec  6 15:05:18 2022
+| Date         : Tue Dec  6 18:00:26 2022
 | Host         : brian-desktopPC running 64-bit Manjaro Linux
 | Command      : report_drc -file proj_top_drc_routed.rpt -pb proj_top_drc_routed.pb -rpx proj_top_drc_routed.rpx
 | Design       : proj_top

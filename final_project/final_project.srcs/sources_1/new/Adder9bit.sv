@@ -93,7 +93,7 @@ module Adder9bit(
 	.B(B[8]),
 	.Cin(C8),
 	.S(S[8]),
-	.Cout(C9)
+	.Cout(Cout)
 	);
 
 endmodule

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.1 (lin64) Build 3526262 Mon Apr 18 15:47:01 MDT 2022
-| Date         : Tue Dec  6 15:04:59 2022
+| Date         : Tue Dec  6 18:00:08 2022
 | Host         : brian-desktopPC running 64-bit Manjaro Linux
 | Command      : report_control_sets -verbose -file proj_top_control_sets_placed.rpt
 | Design       : proj_top
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |     1 |
-|    Minimum number of control sets                        |     1 |
+| Total control sets                                       |    14 |
+|    Minimum number of control sets                        |    14 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |     4 |
+| Unused register locations in slices containing registers |    63 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |     1 |
-| >= 0 to < 4        |     0 |
-| >= 4 to < 6        |     0 |
+| Total control sets |    14 |
+| >= 0 to < 4        |     3 |
+| >= 4 to < 6        |     6 |
 | >= 6 to < 8        |     0 |
-| >= 8 to < 10       |     0 |
+| >= 8 to < 10       |     2 |
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
-| >= 16              |     1 |
+| >= 16              |     3 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,22 +58,35 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              20 |            5 |
+| No           | No                    | No                     |              59 |           17 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | No                     |              78 |           25 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |               0 |            0 |
+| Yes          | Yes                   | No                     |              16 |            3 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------+---------------+------------------+------------------+----------------+--------------+
-|  Clock Signal  | Enable Signal | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
-+----------------+---------------+------------------+------------------+----------------+--------------+
-|  clk_IBUF_BUFG |               |                  |                5 |             20 |         4.00 |
-+----------------+---------------+------------------+------------------+----------------+--------------+
++----------------+------------------------------------------------+--------------------------------+------------------+----------------+--------------+
+|  Clock Signal  |                  Enable Signal                 |        Set/Reset Signal        | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------+------------------------------------------------+--------------------------------+------------------+----------------+--------------+
+|  clk_IBUF_BUFG | StateLogic/add_sub_i_1_n_0                     |                                |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG | go_deb/held_i_1_n_0                            |                                |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG | reset_deb/held_i_1__0_n_0                      |                                |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG | StateLogic/reg_B[3]_i_1_n_0                    |                                |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | SEG_CTL/bcd/A[3]_i_1_n_0                       |                                |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | SEG_CTL/bcd/B[3]_i_1_n_0                       |                                |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | SEG_CTL/bcd/D[3]_i_1_n_0                       |                                |                3 |              4 |         1.33 |
+|  clk_IBUF_BUFG | SEG_CTL/bcd/C[3]_i_1_n_0                       |                                |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | StateLogic/FSM_onehot_currentState[4]_i_1_n_0  |                                |                1 |              5 |         5.00 |
+|  clk_IBUF_BUFG | StateLogic/FSM_onehot_currentState_reg_n_0_[4] | reset_deb/z_reg_0              |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | StateLogic/adderOut[7]_i_2_n_0                 | StateLogic/adderOut[7]_i_1_n_0 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | go_IBUF                                        |                                |                7 |             25 |         3.57 |
+|  clk_IBUF_BUFG | reset_IBUF                                     |                                |                7 |             25 |         3.57 |
+|  clk_IBUF_BUFG |                                                |                                |               17 |             59 |         3.47 |
++----------------+------------------------------------------------+--------------------------------+------------------+----------------+--------------+
 
 

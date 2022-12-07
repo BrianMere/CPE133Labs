@@ -9,7 +9,7 @@
 ## Clock signal
 set_property PACKAGE_PIN W5 [get_ports clk]
 set_property IOSTANDARD LVCMOS33 [get_ports clk]
-create_clock -period 1000000.000 -name sys_clk_pin -waveform {0.000 5.000} -add [get_ports clk]
+create_clock -period 10.000 -name sys_clk_pin -waveform {0.000 5.000} -add [get_ports clk]
 
 ## I lowered the clock to 1000000.000 for 1Khz I presume, but normally can use 10.000 for 10MHz
 
@@ -139,8 +139,8 @@ set_property PACKAGE_PIN W4 [get_ports {an[3]}]
 # Center Button
 set_property PACKAGE_PIN U18 [get_ports go]
     set_property IOSTANDARD LVCMOS33 [get_ports go]
-#set_property PACKAGE_PIN T18 [get_ports btnU]
-#set_property IOSTANDARD LVCMOS33 [get_ports btnU]
+set_property PACKAGE_PIN T18 [get_ports reset]
+set_property IOSTANDARD LVCMOS33 [get_ports reset]
 #set_property PACKAGE_PIN W19 [get_ports btnL]
 #set_property IOSTANDARD LVCMOS33 [get_ports btnL]
 #set_property PACKAGE_PIN T17 [get_ports btnR]

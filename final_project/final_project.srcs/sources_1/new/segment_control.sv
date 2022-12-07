@@ -15,7 +15,6 @@ module segment_control(
     
     assign dp = 1; // we won't use our dp for our purposes. Again active low is 1.
     
-    
     logic [19:0] refresh_counter = 0; // counter for crating 2.6ms digit period as to allow distinct dark/light segments
     
     always_ff @ (posedge clk, posedge reset) begin
