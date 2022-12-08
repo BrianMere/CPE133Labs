@@ -51,6 +51,7 @@ module FSM(
                 else
                     mult_count <= 4'b0000;
                 currentState <= 3'b000;
+                logic_switches <= reg_A_state;
             end
         end
         
@@ -61,12 +62,16 @@ module FSM(
                 if (switches == 0)
                     reg_A <= 8'b00000000;
                 COUNT_MAX <= switches;
-                logic_switches <= reg_A_state;
+                //logic_switches <= reg_A_state;
                 logic_sub <= 0; // DONT USE THE SUB WITH MULT HAHA
             end
             else begin // add/sub stuff
                 COUNT_MAX <= 1;
-                logic_switches <= switches;
+                if (switches[3] == 0)
+                    logic_switches <= switches;
+                else
+                    logic_switches <= 8'b11111000 + switches[2:0]; // uh... 
+                
                 logic_sub <= sub;
             end
             
