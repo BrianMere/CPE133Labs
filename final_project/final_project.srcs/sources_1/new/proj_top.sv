@@ -33,7 +33,7 @@ module proj_top(
         .z(reset_debounce)
     );
     
-    logic [3:0] to_reg_B;
+    logic [7:0] to_reg_B;
     logic [7:0] adder_out, from_reg_A, to_reg_A, from_reg_B; 
     logic sub_fsm;
     logic [7:0] fsm_out;

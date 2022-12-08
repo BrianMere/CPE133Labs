@@ -16,12 +16,12 @@ module FSM(
         output logic [7:0] current_out_val, // Used instead of LEDs due to segment_control module
         output logic add_sub, // input whether to add or subtract towards the compute module
         output logic [7:0] reg_A, // send data to reg_A here ...
-        output logic [3:0] reg_B,  // send data to reg_B here ...
+        output logic [7:0] reg_B,  // send data to reg_B here ...
         output logic zero_flag
     );
     
 //     we are using a counter as the current state
-    logic [2:0] currentState = 3'b000;
+    logic [2:0] currentState = 3'b111;
     
     // Overview of the states:
     // 0: Standby | Wait for 'go'
@@ -32,25 +32,60 @@ module FSM(
     
     logic [2:0] counter = 0;
     logic [7:0] adderOut;
+    logic [3:0] COUNT_MAX;
+    logic [7:0] logic_switches; // normally adder uses the switches but for mult we need to use reg_A
+    logic logic_go;
+    logic [3:0] mult_count;
+    logic logic_sub;
     
     always_ff @ (posedge clk) begin
         if (reset) begin
             reg_A <= 8'b00000000;
         end
         
+        if (currentState == 3'b111) begin //Standby
+            if(go && logic_go == 0) begin
+                logic_go <= 1;
+                if (mult)
+                    mult_count <= 4'b0001;
+                else
+                    mult_count <= 4'b0000;
+                currentState <= 3'b000;
+            end
+        end
+        
         // adder logic ... 
-        else if(currentState == 3'b000) begin // Standby
-            if(go)
+        else if(currentState == 3'b000) begin // loop central
+        
+            if (mult) begin // mult stuff
+                if (switches == 0)
+                    reg_A <= 8'b00000000;
+                COUNT_MAX <= switches;
+                logic_switches <= reg_A_state;
+                logic_sub <= 0; // DONT USE THE SUB WITH MULT HAHA
+            end
+            else begin // add/sub stuff
+                COUNT_MAX <= 1;
+                logic_switches <= switches;
+                logic_sub <= sub;
+            end
+            
+            if(logic_go && mult_count < COUNT_MAX)
                 currentState <= 3'b001;
+            else begin
+                logic_go <= 0;
+                currentState <= 3'b111;
+            end
             // else, remain in currentState
         end
         else if(currentState == 3'b001) begin // Update Add/Sub
-            add_sub <= sub;
+            mult_count <= mult_count + 1;
+            add_sub <= logic_sub;
             currentState <= 3'b010;
         end
         else if(currentState == 3'b010) begin // Load B
             if(counter == 3'b000) // always just send the B data as early as possible, but you don't need to keep updating it ...
-                reg_B <= switches;
+                reg_B <= logic_switches;
             else if(counter == 3'b111) begin
                 currentState <= 3'b011;
                 counter <= 3'b000;
@@ -67,7 +102,7 @@ module FSM(
             currentState <= 3'b000;
         end
         else begin // Default state: send to Standby
-            currentState <= 3'b000;
+            currentState <= 3'b111;
         end
         
         // Do the following for EACH state regardless ...
@@ -76,7 +111,6 @@ module FSM(
             zero_flag <= 1;
         else
             zero_flag <= 0;
-             
-    end
+        end
     
 endmodule
