@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2022.1 (lin64) Build 3526262 Mon Apr 18 15:47:01 MDT 2022
-| Date         : Tue Dec  6 18:00:08 2022
-| Host         : brian-desktopPC running 64-bit Manjaro Linux
+| Tool Version : Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
+| Date         : Thu Dec  8 11:24:12 2022
+| Host         : DESKTOP-OJK9U19 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file proj_top_control_sets_placed.rpt
 | Design       : proj_top
 | Device       : xc7a35t
@@ -58,35 +58,35 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              59 |           17 |
+| No           | No                    | No                     |              59 |           20 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |              78 |           25 |
+| Yes          | No                    | No                     |              86 |           29 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              16 |            3 |
+| Yes          | Yes                   | No                     |               8 |            4 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------+------------------------------------------------+--------------------------------+------------------+----------------+--------------+
-|  Clock Signal  |                  Enable Signal                 |        Set/Reset Signal        | Slice Load Count | Bel Load Count | Bels / Slice |
-+----------------+------------------------------------------------+--------------------------------+------------------+----------------+--------------+
-|  clk_IBUF_BUFG | StateLogic/add_sub_i_1_n_0                     |                                |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG | go_deb/held_i_1_n_0                            |                                |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG | reset_deb/held_i_1__0_n_0                      |                                |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG | StateLogic/reg_B[3]_i_1_n_0                    |                                |                1 |              4 |         4.00 |
-|  clk_IBUF_BUFG | SEG_CTL/bcd/A[3]_i_1_n_0                       |                                |                1 |              4 |         4.00 |
-|  clk_IBUF_BUFG | SEG_CTL/bcd/B[3]_i_1_n_0                       |                                |                1 |              4 |         4.00 |
-|  clk_IBUF_BUFG | SEG_CTL/bcd/D[3]_i_1_n_0                       |                                |                3 |              4 |         1.33 |
-|  clk_IBUF_BUFG | SEG_CTL/bcd/C[3]_i_1_n_0                       |                                |                1 |              4 |         4.00 |
-|  clk_IBUF_BUFG | StateLogic/FSM_onehot_currentState[4]_i_1_n_0  |                                |                1 |              5 |         5.00 |
-|  clk_IBUF_BUFG | StateLogic/FSM_onehot_currentState_reg_n_0_[4] | reset_deb/z_reg_0              |                1 |              8 |         8.00 |
-|  clk_IBUF_BUFG | StateLogic/adderOut[7]_i_2_n_0                 | StateLogic/adderOut[7]_i_1_n_0 |                2 |              8 |         4.00 |
-|  clk_IBUF_BUFG | go_IBUF                                        |                                |                7 |             25 |         3.57 |
-|  clk_IBUF_BUFG | reset_IBUF                                     |                                |                7 |             25 |         3.57 |
-|  clk_IBUF_BUFG |                                                |                                |               17 |             59 |         3.47 |
-+----------------+------------------------------------------------+--------------------------------+------------------+----------------+--------------+
++----------------+------------------------------------------------+-------------------+------------------+----------------+--------------+
+|  Clock Signal  |                  Enable Signal                 |  Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------+------------------------------------------------+-------------------+------------------+----------------+--------------+
+|  clk_IBUF_BUFG | go_deb/held_i_1_n_0                            |                   |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG | reset_deb/held_i_1__0_n_0                      |                   |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG | StateLogic/add_sub_i_1_n_0                     |                   |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG | StateLogic/reg_B[3]_i_1_n_0                    |                   |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG | SEG_CTL/bcd/A[3]_i_1_n_0                       |                   |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | SEG_CTL/bcd/B[3]_i_1_n_0                       |                   |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG | SEG_CTL/bcd/C[3]_i_1_n_0                       |                   |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | SEG_CTL/bcd/D[3]_i_1_n_0                       |                   |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG | StateLogic/FSM_onehot_currentState[4]_i_1_n_0  |                   |                1 |              5 |         5.00 |
+|  clk_IBUF_BUFG | StateLogic/adderOut[7]_i_1_n_0                 |                   |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | StateLogic/FSM_onehot_currentState_reg_n_0_[4] | reset_deb/z_reg_0 |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | reset_IBUF                                     |                   |                7 |             25 |         3.57 |
+|  clk_IBUF_BUFG | go_IBUF                                        |                   |                7 |             25 |         3.57 |
+|  clk_IBUF_BUFG |                                                |                   |               20 |             59 |         2.95 |
++----------------+------------------------------------------------+-------------------+------------------+----------------+--------------+
 
 

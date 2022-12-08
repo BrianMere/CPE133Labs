@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.runs/synth_1/proj_top.tcl"
+  variable script "C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.runs/synth_1/proj_top.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,11 +70,10 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param xicom.use_bs_reader 1
-set_param chipscope.maxJobs 3
 set_param checkpoint.writeSynthRtdsInDcp 1
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-79189-brian-desktopPC/incrSyn
-set_msg_config -id {Common 17-41} -limit 10000000
+set_param chipscope.maxJobs 2
+set_param synth.incrementalSynthesisCache C:/Users/brian/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-6672-DESKTOP-OJK9U19/incrSyn
+set_param xicom.use_bs_reader 1
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -83,30 +82,30 @@ create_project -in_memory -part xc7a35tcpg236-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.cache/wt [current_project]
-set_property parent.project_path /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.cache/wt [current_project]
+set_property parent.project_path C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.cache/ip [current_project]
+set_property ip_output_repo c:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib -sv {
-  /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.srcs/sources_1/new/7seg_decoder.sv
-  /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.srcs/sources_1/new/8-bitCalculatorModule.sv
-  /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.srcs/sources_1/new/Adder9bit.sv
-  /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.srcs/sources_1/new/BCD.sv
-  /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.srcs/sources_1/new/FSM.sv
-  /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.srcs/sources_1/new/Mux4bit4sel.sv
-  /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.srcs/sources_1/new/Mux8bit2sel.sv
-  /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.srcs/sources_1/new/add_sub_struct.sv
-  /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.srcs/sources_1/new/debounce_ret.sv
-  /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.srcs/sources_1/new/full_adder.sv
-  /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.srcs/sources_1/new/half_adder.sv
-  /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.srcs/sources_1/new/limit_val.sv
-  /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.srcs/sources_1/new/register_8bit.sv
-  /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.srcs/sources_1/new/segment_control.sv
-  /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.srcs/sources_1/new/proj_top.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.srcs/sources_1/new/7seg_decoder.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.srcs/sources_1/new/8-bitCalculatorModule.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.srcs/sources_1/new/Adder9bit.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.srcs/sources_1/new/BCD.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.srcs/sources_1/new/FSM.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.srcs/sources_1/new/Mux4bit4sel.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.srcs/sources_1/new/Mux8bit2sel.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.srcs/sources_1/new/add_sub_struct.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.srcs/sources_1/new/debounce_ret.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.srcs/sources_1/new/full_adder.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.srcs/sources_1/new/half_adder.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.srcs/sources_1/new/limit_val.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.srcs/sources_1/new/register_8bit.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.srcs/sources_1/new/segment_control.sv
+  C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.srcs/sources_1/new/proj_top.sv
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -117,12 +116,12 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc {{/home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.srcs/constrs_1/imports/lab5 - V2/Basys3_constraints_w_clk_btn.xdc}}
-set_property used_in_implementation false [get_files {{/home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.srcs/constrs_1/imports/lab5 - V2/Basys3_constraints_w_clk_btn.xdc}}]
+read_xdc {{C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.srcs/constrs_1/imports/lab5 - V2/Basys3_constraints_w_clk_btn.xdc}}
+set_property used_in_implementation false [get_files {{C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.srcs/constrs_1/imports/lab5 - V2/Basys3_constraints_w_clk_btn.xdc}}]
 
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.srcs/utils_1/imports/synth_1/add_sub_struct.dcp
+read_checkpoint -auto_incremental -incremental C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.srcs/utils_1/imports/synth_1/add_sub_struct.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

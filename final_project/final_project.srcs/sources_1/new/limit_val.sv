@@ -13,16 +13,17 @@ module limit_val(
 	// if/else statement
 	always_comb
 	begin
-	   if (neg) begin
-	       out = 8'b00000000;
-	   end
-	   else if (S > 9'b100000001) begin // range for 8 bit numbers is from +255 to 0 so make sure if S > 2^8 we limit
-	       out = 8'b11111111; //8'b11111111
-	   end
-	   else begin
-	       out[7:0] = S[7:0]; 
-	   end          // always include a default case 
-	                        // otherwise, verilog will allocate memory to save old value of out
+	   out = S;
+//	   if (neg) begin
+//	       out = 8'b00000000;
+//	   end
+//	   else if (S > 9'b100000001) begin // range for 8 bit numbers is from +255 to 0 so make sure if S > 2^8 we limit
+//	       out = 8'b11111111; //8'b11111111
+//	   end
+//	   else begin
+//	       out[7:0] = S[7:0]; 
+//	   end          // always include a default case 
+//	                        // otherwise, verilog will allocate memory to save old value of out
 	end
 
 endmodule

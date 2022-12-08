@@ -6,6 +6,7 @@
 module proj_top(
         input [3:0] switches,
         input sub, // sub should probably be a switch for future reference
+        input mult,
         input go,
         input clk, 
         input reset, // reset signal like the 'clear' signal on a calculator
@@ -40,6 +41,7 @@ module proj_top(
     FSM StateLogic(
         .switches(switches),
         .sub(sub),
+        .mult(mult),
         .go(go_debounce), //go_debounce. Need to change once I get some FSM logic working.
         .calculator_state(adder_out),
         .reg_A_state(from_reg_A),

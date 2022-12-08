@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1670378331" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/add_sub_struct.dcp">
-  <File Type="VDS-TIMINGSUMMARY" Name="proj_top_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="proj_top.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="proj_top_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="proj_top_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="proj_top_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="proj_top.vds"/>
-  <File Type="REPORTS-TCL" Name="proj_top_reports.tcl"/>
-  <File Type="VDS-TIMING-PB" Name="proj_top_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1670527374" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/add_sub_struct.dcp">
   <File Type="PA-TCL" Name="proj_top.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="proj_top_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="proj_top_reports.tcl"/>
+  <File Type="RDS-RDS" Name="proj_top.vds"/>
+  <File Type="RDS-UTIL" Name="proj_top_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="proj_top_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="proj_top.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="proj_top_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="proj_top_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/7seg_decoder.sv">

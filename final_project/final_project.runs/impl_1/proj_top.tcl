@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "/home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.runs/impl_1/proj_top.tcl"
+  variable script "C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.runs/impl_1/proj_top.tcl"
   variable category "vivado_impl"
 }
 
@@ -115,7 +115,6 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 
@@ -125,25 +124,25 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param xicom.use_bs_reader 1
-  set_param chipscope.maxJobs 3
   set_param checkpoint.writeSynthRtdsInDcp 1
-  set_param synth.incrementalSynthesisCache ./.Xil/Vivado-79189-brian-desktopPC/incrSyn
+  set_param chipscope.maxJobs 2
+  set_param synth.incrementalSynthesisCache C:/Users/brian/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-6672-DESKTOP-OJK9U19/incrSyn
+  set_param xicom.use_bs_reader 1
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a35tcpg236-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.cache/wt [current_project]
-  set_property parent.project_path /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.xpr [current_project]
-  set_property ip_output_repo /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.cache/wt [current_project]
+  set_property parent.project_path C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.xpr [current_project]
+  set_property ip_output_repo C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet /home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.runs/synth_1/proj_top.dcp
+  add_files -quiet C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.runs/synth_1/proj_top.dcp
 OPTRACE "read constraints: implementation" START { }
-  read_xdc {{/home/brianm/Documents/Repos/CPE133Labs/final_project/final_project.srcs/constrs_1/imports/lab5 - V2/Basys3_constraints_w_clk_btn.xdc}}
+  read_xdc {{C:/Users/brian/Documents/SchoolPapers/Repositories/CPE133Labs/final_project/final_project.srcs/constrs_1/imports/lab5 - V2/Basys3_constraints_w_clk_btn.xdc}}
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }

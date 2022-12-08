@@ -7,6 +7,7 @@
 module FSM(
         input [3:0] switches, // value (in binary) to add/sub
         input sub, // indicates if one wants to add or subtract to the calculator
+        input mult, // indicates if one wants to multiply reg_A by switches. Takes precedence over sub. 
         input go, // like the enter button on a calculator
         input [7:0] calculator_state, // input from calculator (add_sub module)
         input [7:0] reg_A_state, // get input from the current value in reg_A
@@ -36,6 +37,8 @@ module FSM(
         if (reset) begin
             reg_A <= 8'b00000000;
         end
+        
+        // adder logic ... 
         else if(currentState == 3'b000) begin // Standby
             if(go)
                 currentState <= 3'b001;
